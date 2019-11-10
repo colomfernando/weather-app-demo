@@ -1,18 +1,20 @@
 import React from 'react';
 import GlobalStyle from 'js/GlobalStyle';
-import CardDay from 'components/CardDay';
+import { getWeather } from 'core/api';
 import Styles from './styles';
 
-const App = () => (
-	<>
-		<GlobalStyle />
-		<Styles.Wrapper>
-			<CardDay day="monday" tempeture="30" icon="sun" />
-			<CardDay day="monday" tempeture="30" icon="sun" />
-			<CardDay day="monday" tempeture="30" icon="sun" />
-			<CardDay day="monday" tempeture="30" icon="sun" />
-		</Styles.Wrapper>
-	</>
-);
+const App = () => {
+	getWeather({ lat: '-34.590531500000004', lon: '-58.4178887' }).then(console.log);
+	return (
+		<>
+			<GlobalStyle />
+			<Styles.Wrapper>
+				<Styles.Currently>
+					<div>currently</div>
+				</Styles.Currently>
+			</Styles.Wrapper>
+		</>
+	);
+};
 
 export default App;
