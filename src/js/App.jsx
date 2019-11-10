@@ -1,10 +1,11 @@
 import React from 'react';
-import Icon from 'components/Icon';
+import GlobalStyle from 'js/GlobalStyle';
 
 const App = () => (
-	<div>
-		<Icon name="sun" size={45} />
-	</div>
+	<>
+		<GlobalStyle />
+		<div>test</div>
+	</>
 );
 
 export default App;

@@ -14,7 +14,9 @@ module.exports = {
 		modules: [path.resolve(__dirname, 'src'), 'node_modules'],
 		alias: {
 			js: path.resolve('src/js'),
-			components: path.resolve('src/js/components')
+			components: path.resolve('src/js/components'),
+			theme: path.resolve('src/js/theme'),
+			core: path.resolve('src/js/core')
 		}
 	},
 	module: {

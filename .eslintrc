@@ -1,7 +1,7 @@
 {
 	"parser": "babel-eslint",
 	"extends": ["airbnb", "plugin:react/recommended", "prettier", "prettier/react"],
-	"plugins": ["react", "import", "prettier", "module-resolver"],
+	"plugins": ["react", "import", "prettier", "module-resolver", "import"],
 	"env": {
 		"browser": true,
 		"jest": true
@@ -15,6 +15,7 @@
 	},
 	"rules": {
 		"prettier/prettier": "error",
+		"import/no-unresolved": [2, { "commonjs": true, "amd": true }],
 		"import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 		"func-names": ["error", "never"]

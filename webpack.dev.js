@@ -19,7 +19,7 @@ module.exports = {
 		alias: {
 			js: path.resolve('src/js'),
 			components: path.resolve('src/js/components'),
-			theme: path.resolve('src/js/theme/index'),
+			theme: path.resolve('src/js/theme'),
 			core: path.resolve('src/js/core')
 		}
 	},
