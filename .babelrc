@@ -1,21 +1,72 @@
 {
-	"presets": [
-		"@babel/preset-react",
-		[
-			"@babel/preset-env",
-			{
-				"useBuiltIns": "usage",
-				"debug": false,
-				"corejs": 3,
-				"targets": {
-					"browsers": ["last 2 versions", "not ie <= 10"]
-				}
-			}
-		]
-	],
-	"plugins": [
-		"@babel/plugin-proposal-object-rest-spread",
-		"@babel/plugin-proposal-class-properties",
-		"babel-plugin-styled-components"
-	]
+	"env": {
+		"test": {
+			"plugins": [
+				"@babel/plugin-syntax-dynamic-import",
+				"@babel/plugin-transform-runtime",
+				"@babel/plugin-proposal-class-properties",
+				"babel-plugin-styled-components",
+				"@babel/plugin-proposal-object-rest-spread"
+			],
+			"presets": [
+				[
+					"@babel/preset-env",
+					{
+						"targets": {
+							"browsers": ["last 2 versions", "IE >= 10"]
+						},
+						"useBuiltIns": "usage",
+						"corejs": 3
+					}
+				],
+				"@babel/preset-react"
+			]
+		},
+		"production": {
+			"plugins": [
+				"@babel/plugin-syntax-dynamic-import",
+				"@babel/plugin-transform-runtime",
+				"@babel/plugin-proposal-class-properties",
+				"babel-plugin-styled-components",
+				"@babel/plugin-proposal-object-rest-spread"
+			],
+			"presets": [
+				[
+					"@babel/preset-env",
+					{
+						"targets": {
+							"browsers": ["last 2 versions", "IE >= 11"]
+						},
+						"useBuiltIns": "usage",
+						"corejs": 3,
+						"modules": false
+					}
+				],
+				"@babel/preset-react"
+			]
+		},
+		"development": {
+			"plugins": [
+				"@babel/plugin-syntax-dynamic-import",
+				"@babel/plugin-transform-runtime",
+				"@babel/plugin-proposal-class-properties",
+				"babel-plugin-styled-components",
+				"@babel/plugin-proposal-object-rest-spread"
+			],
+			"presets": [
+				[
+					"@babel/preset-env",
+					{
+						"targets": {
+							"browsers": ["last 2 versions", "IE >= 11"]
+						},
+						"useBuiltIns": "usage",
+						"corejs": 3,
+						"modules": false
+					}
+				],
+				"@babel/preset-react"
+			]
+		}
+	}
 }
