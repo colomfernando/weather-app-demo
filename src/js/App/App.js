@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import GlobalStyle from 'js/GlobalStyle';
+import Currently from 'components/Currently';
 import { getWeather } from 'core/api';
 import Styles from './styles';
 
 const App = () => {
-	getWeather({ lat: '-34.590531500000004', lon: '-58.4178887' }).then(console.log);
+	const [currently, setCurrently] = useState({});
+
+	useEffect(() => {
+		getWeather({ lat: '61.5240097', lon: '105.3187561', units: 'us' }).then(res =>
+			setCurrently(res.currently)
+		);
+	}, []);
 	return (
 		<>
 			<GlobalStyle />
 			<Styles.Wrapper>
-				<Styles.Currently>
-					<div>currently</div>
-				</Styles.Currently>
+				<Currently location="New york" currently={currently} />
 			</Styles.Wrapper>
 		</>
 	);

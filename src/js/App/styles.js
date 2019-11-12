@@ -10,11 +10,6 @@ const Wrapper = styled.div`
 	height: 100vh;
 `;
 
-const Currently = styled.div`
-	width: 100%;
-`;
-
 export default {
-	Wrapper,
-	Currently
+	Wrapper
 };
