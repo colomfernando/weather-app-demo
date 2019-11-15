@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import GlobalStyle from 'js/GlobalStyle';
 import Currently from 'components/Currently';
+import Loading from 'components/Loading';
 import { getWeather } from 'core/api';
 import Styles from './styles';
 
@@ -21,13 +22,13 @@ const App = () => {
 				setHourly(resHourly);
 			})
 			.catch(() => setError(true))
-			.finally(() => setLoading(false));
+			.finally(() => setLoading(true));
 	}, []);
 	return (
 		<>
 			<GlobalStyle />
 			<Styles.Wrapper>
-				{loading ? <div>Loading</div> : <Currently location="New york" currently={currently} />}
+				{loading ? <Loading /> : <Currently location="New york" currently={currently} />}
 			</Styles.Wrapper>
 		</>
 	);
