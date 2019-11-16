@@ -6,6 +6,7 @@ import getWeather from 'core/api';
 import Styles from './styles';
 
 const App = () => {
+	const [timezone, setTimeZone] = useState('');
 	const [currently, setCurrently] = useState({});
 	const [daily, setDaily] = useState({});
 	const [hourly, setHourly] = useState({});
@@ -13,10 +14,16 @@ const App = () => {
 	const [error, setError] = useState(false);
 
 	useEffect(() => {
-		getWeather({ lat: '61.5240097', lon: '105.3187561', units: 'us' })
+		getWeather({ lat: '-34.603722', lon: '-58.381592', units: 'us' })
 			.then(res => {
 				setLoading(true);
-				const { currently: resCurrently = {}, daily: resDaily = {}, hourly: resHourly = {} } = res;
+				const {
+					currently: resCurrently = {},
+					daily: resDaily = {},
+					hourly: resHourly = {},
+					timezone: resTimeZone = ''
+				} = res;
+				setTimeZone(resTimeZone);
 				setCurrently(resCurrently);
 				setDaily(resDaily);
 				setHourly(resHourly);
@@ -28,7 +35,7 @@ const App = () => {
 		<>
 			<GlobalStyle />
 			<Styles.Wrapper>
-				{loading ? <Loading /> : <Currently location="New york" currently={currently} />}
+				{loading ? <Loading /> : <Currently location={timezone} currently={currently} />}
 			</Styles.Wrapper>
 		</>
 	);
