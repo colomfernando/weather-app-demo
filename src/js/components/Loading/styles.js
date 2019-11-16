@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { colors } from 'theme';
 
 const loadingAnimation = keyframes`
   0%,
@@ -35,7 +36,7 @@ const Svg = styled.svg`
 const Circle = styled.circle`
 	max-width: 100px;
 	fill: transparent;
-	stroke: red;
+	stroke: ${colors.secondary};
 	stroke-width: 10;
 	stroke-dasharray: 283;
 	stroke-linecap: round;
