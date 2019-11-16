@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import GlobalStyle from 'js/GlobalStyle';
 import Currently from 'components/Currently';
 import Loading from 'components/Loading';
-import { getWeather } from 'core/api';
+import getWeather from 'core/api';
 import Styles from './styles';
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
 				setHourly(resHourly);
 			})
 			.catch(() => setError(true))
-			.finally(() => setLoading(true));
+			.finally(() => setLoading(false));
 	}, []);
 	return (
 		<>

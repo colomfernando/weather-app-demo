@@ -3,7 +3,7 @@ import { validateParamsApi, validateObj } from '../utils';
 
 const API = 'https://api.colomfernando.dev/demos/weather';
 
-export const getWeather = async (params = {}) => {
+const getWeather = async (params = {}) => {
 	try {
 		if (!validateParamsApi(params)) return {};
 		const { lat, lon, units = 'si' } = params;
@@ -17,4 +17,4 @@ export const getWeather = async (params = {}) => {
 	}
 };
 
-export const test = () => {};
+export { getWeather as default };
