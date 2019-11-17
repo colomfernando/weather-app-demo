@@ -6,6 +6,7 @@ import Temperature from './components/Temperature';
 
 const Currently = ({ location, currently }) => {
 	const regex = new RegExp(/_|-/, 'g');
+	console.log('currently :', currently);
 	const parseTimeZone = validateArray(location.split('/')) ? location.split('/').pop() : '';
 	const sanitizeLocation = parseTimeZone.replace(regex, ' ');
 	const { apparentTemperature, temperature, icon } = currently;
