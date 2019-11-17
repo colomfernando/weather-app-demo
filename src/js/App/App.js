@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import GlobalStyle from 'js/GlobalStyle';
 import Currently from 'components/Currently';
-import Loading from 'components/Loading';
+import LocationText from 'components/LocationText';
 import getWeather from 'core/api';
 import Styles from './styles';
 
@@ -35,7 +35,15 @@ const App = () => {
 		<>
 			<GlobalStyle />
 			<Styles.Wrapper>
-				{loading ? <Loading /> : <Currently location={timezone} currently={currently} />}
+				<Styles.Img src="assets/bk.jpg" />
+				<Styles.Header>
+					<input placeholder="search" />
+					<LocationText locationStr={timezone} />
+				</Styles.Header>
+				<Styles.Body>
+					<Currently currently={currently} />
+				</Styles.Body>
+				<Styles.Footer> footer</Styles.Footer>
 			</Styles.Wrapper>
 		</>
 	);

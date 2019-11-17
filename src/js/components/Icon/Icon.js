@@ -9,13 +9,11 @@ const Icon = ({ name, size, ...rest }) => {
 	if (!selectedIcon) return null;
 	const { viewBox, paths, colors } = selectedIcon;
 	return (
-		<Styles.Wrapper>
-			<Styles.Svg {...rest} viewBox={viewBox} width={`${size}px`} height={`${size}px`}>
-				{paths.map((d, i) => (
-					<path key={i.toString()} d={d} fill={colors && colors.length && colors[i]} />
-				))}
-			</Styles.Svg>
-		</Styles.Wrapper>
+		<Styles.Svg {...rest} viewBox={viewBox} width={`${size}px`} height={`${size}px`}>
+			{paths.map((d, i) => (
+				<path key={i.toString()} d={d} fill={colors && colors.length && colors[i]} />
+			))}
+		</Styles.Svg>
 	);
 };
 

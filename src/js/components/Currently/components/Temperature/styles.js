@@ -13,12 +13,9 @@ const Wrapper = styled.div`
 `;
 
 const TemperatureText = styled(baseText)`
-	margin-right: 20px;
 	font-size: 64px;
 `;
 
-const FeelLikeText = styled(baseText)`
-	margin-top: 10px;
-`;
+const FeelLikeText = styled(baseText)``;
 
 export default { Wrapper, TemperatureText, FeelLikeText };
