@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`component match snapshot  1`] = `
+<Temperature
+  feelLike={21}
+  temperature={20}
+>
+  <styles__Wrapper>
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "styles__Wrapper-qxuzqr-1",
+            "isStatic": false,
+            "lastClassName": "iRywMi",
+            "rules": Array [
+              "display:flex;flex-flow:column nowrap;margin:20px 0;",
+            ],
+          },
+          "displayName": "styles__Wrapper",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "styles__Wrapper-qxuzqr-1",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+    >
+      <div
+        className="styles__Wrapper-qxuzqr-1 iRywMi"
+      >
+        <styles__TemperatureText>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "styles__TemperatureText-qxuzqr-2",
+                  "isStatic": false,
+                  "lastClassName": "hRXeLg",
+                  "rules": Array [
+                    "color:",
+                    "#fff",
+                    ";font-size:18px;",
+                    "margin-right:20px;font-size:64px;",
+                  ],
+                },
+                "displayName": "styles__TemperatureText",
+                "foldedComponentIds": Array [
+                  "styles__baseText-qxuzqr-0",
+                ],
+                "render": [Function],
+                "styledComponentId": "styles__TemperatureText-qxuzqr-2",
+                "target": "p",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <p
+              className="styles__baseText-qxuzqr-0 styles__TemperatureText-qxuzqr-2 hRXeLg"
+            >
+              20º
+            </p>
+          </StyledComponent>
+        </styles__TemperatureText>
+        <styles__FeelLikeText>
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "styles__FeelLikeText-qxuzqr-3",
+                  "isStatic": false,
+                  "lastClassName": "jfHIHT",
+                  "rules": Array [
+                    "color:",
+                    "#fff",
+                    ";font-size:18px;",
+                    "margin-top:10px;",
+                  ],
+                },
+                "displayName": "styles__FeelLikeText",
+                "foldedComponentIds": Array [
+                  "styles__baseText-qxuzqr-0",
+                ],
+                "render": [Function],
+                "styledComponentId": "styles__FeelLikeText-qxuzqr-3",
+                "target": "p",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
+            }
+            forwardedRef={null}
+          >
+            <p
+              className="styles__baseText-qxuzqr-0 styles__FeelLikeText-qxuzqr-3 jfHIHT"
+            >
+              Feel like: 21º
+            </p>
+          </StyledComponent>
+        </styles__FeelLikeText>
+      </div>
+    </StyledComponent>
+  </styles__Wrapper>
+</Temperature>
+`;

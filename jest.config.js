@@ -1,5 +1,13 @@
 module.exports = {
-	clearMocks: true,
+	moduleDirectories: [
+		'node_modules',
+		'src',
+		'src/js',
+		'src/js/core',
+		'src/js/theme',
+		'src/js/components'
+	],
+	setupFiles: ['jest-prop-type-error'],
 	moduleFileExtensions: ['js', 'json', 'jsx'],
 	testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
 	testPathIgnorePatterns: ['\\\\node_modules\\\\'],

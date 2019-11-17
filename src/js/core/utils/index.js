@@ -10,3 +10,6 @@ export const validateParamsApi = (obj = {}) => {
 
 export const validateArray = (arr = []) =>
 	!!(arr && Object.prototype.toString.call(arr) === '[object Array]' && arr.length);
+
+export const validateNumber = num =>
+	!!(num && typeof num === 'number' && !Number.isNaN(Number(num)));

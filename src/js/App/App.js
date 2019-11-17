@@ -14,7 +14,7 @@ const App = () => {
 	const [error, setError] = useState(false);
 
 	useEffect(() => {
-		getWeather({ lat: '-34.603722', lon: '-58.381592', units: 'us' })
+		getWeather({ lat: '-34.603722', lon: '-58.381592', units: 'si' })
 			.then(res => {
 				setLoading(true);
 				const {
