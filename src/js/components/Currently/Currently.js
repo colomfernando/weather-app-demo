@@ -2,15 +2,23 @@ import React from 'react';
 import { objectOf, any } from 'prop-types';
 import Styles from './styles';
 import Temperature from './components/Temperature';
+import Humidity from './components/Humidity';
 
 const Currently = ({ currently }) => {
-	const { apparentTemperature, temperature, icon } = currently;
+	const { apparentTemperature, temperature, icon, humidity } = currently;
 	console.log('currently :', currently);
 	return (
 		<Styles.Wrapper>
-			{icon && <Styles.Icon name={icon} size={80} />}
+			{icon && (
+				<Styles.WrapperIcon>
+					<Styles.Icon name={icon} size={60} />
+				</Styles.WrapperIcon>
+			)}
 			{temperature && apparentTemperature && (
-				<Temperature temperature={temperature} feelLike={apparentTemperature} />
+				<Styles.WrapperInfo>
+					<Temperature temperature={temperature} feelLike={apparentTemperature} />
+					{humidity && <Humidity data={humidity} />}
+				</Styles.WrapperInfo>
 			)}
 		</Styles.Wrapper>
 	);

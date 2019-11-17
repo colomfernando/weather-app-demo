@@ -14,9 +14,9 @@ exports[`component match snapshot  1`] = `
           "componentStyle": ComponentStyle {
             "componentId": "styles__Wrapper-qxuzqr-1",
             "isStatic": false,
-            "lastClassName": "iRywMi",
+            "lastClassName": "grKBGo",
             "rules": Array [
-              "display:flex;flex-flow:column nowrap;margin:20px 0;",
+              "display:flex;flex-flow:column nowrap;",
             ],
           },
           "displayName": "styles__Wrapper",
@@ -32,7 +32,7 @@ exports[`component match snapshot  1`] = `
       forwardedRef={null}
     >
       <div
-        className="styles__Wrapper-qxuzqr-1 iRywMi"
+        className="styles__Wrapper-qxuzqr-1 grKBGo"
       >
         <styles__TemperatureText>
           <StyledComponent
@@ -41,14 +41,14 @@ exports[`component match snapshot  1`] = `
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": Array [],
                 "componentStyle": ComponentStyle {
-                  "componentId": "styles__TemperatureText-qxuzqr-2",
+                  "componentId": "styles__TemperatureText-qxuzqr-3",
                   "isStatic": false,
-                  "lastClassName": "hRXeLg",
+                  "lastClassName": "brcPgZ",
                   "rules": Array [
                     "color:",
                     "#fff",
-                    ";font-size:18px;",
-                    "margin-right:20px;font-size:64px;",
+                    ";font-size:16px;",
+                    "font-size:80px;margin-bottom:10px;",
                   ],
                 },
                 "displayName": "styles__TemperatureText",
@@ -56,7 +56,7 @@ exports[`component match snapshot  1`] = `
                   "styles__baseText-qxuzqr-0",
                 ],
                 "render": [Function],
-                "styledComponentId": "styles__TemperatureText-qxuzqr-2",
+                "styledComponentId": "styles__TemperatureText-qxuzqr-3",
                 "target": "p",
                 "toString": [Function],
                 "warnTooManyClasses": [Function],
@@ -66,36 +66,31 @@ exports[`component match snapshot  1`] = `
             forwardedRef={null}
           >
             <p
-              className="styles__baseText-qxuzqr-0 styles__TemperatureText-qxuzqr-2 hRXeLg"
+              className="styles__baseText-qxuzqr-0 styles__TemperatureText-qxuzqr-3 brcPgZ"
             >
               20º
             </p>
           </StyledComponent>
         </styles__TemperatureText>
-        <styles__FeelLikeText>
+        <styles__WrapperFeel>
           <StyledComponent
             forwardedComponent={
               Object {
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": Array [],
                 "componentStyle": ComponentStyle {
-                  "componentId": "styles__FeelLikeText-qxuzqr-3",
+                  "componentId": "styles__WrapperFeel-qxuzqr-2",
                   "isStatic": false,
-                  "lastClassName": "jfHIHT",
+                  "lastClassName": "kkidPH",
                   "rules": Array [
-                    "color:",
-                    "#fff",
-                    ";font-size:18px;",
-                    "margin-top:10px;",
+                    "display:flex;justify-content:space-between;",
                   ],
                 },
-                "displayName": "styles__FeelLikeText",
-                "foldedComponentIds": Array [
-                  "styles__baseText-qxuzqr-0",
-                ],
+                "displayName": "styles__WrapperFeel",
+                "foldedComponentIds": Array [],
                 "render": [Function],
-                "styledComponentId": "styles__FeelLikeText-qxuzqr-3",
-                "target": "p",
+                "styledComponentId": "styles__WrapperFeel-qxuzqr-2",
+                "target": "div",
                 "toString": [Function],
                 "warnTooManyClasses": [Function],
                 "withComponent": [Function],
@@ -103,13 +98,88 @@ exports[`component match snapshot  1`] = `
             }
             forwardedRef={null}
           >
-            <p
-              className="styles__baseText-qxuzqr-0 styles__FeelLikeText-qxuzqr-3 jfHIHT"
+            <div
+              className="styles__WrapperFeel-qxuzqr-2 kkidPH"
             >
-              Feel like: 21º
-            </p>
+              <styles__FeelLikeText>
+                <StyledComponent
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "styles__FeelLikeText-qxuzqr-4",
+                        "isStatic": false,
+                        "lastClassName": "HkUZh",
+                        "rules": Array [
+                          "color:",
+                          "#fff",
+                          ";font-size:16px;",
+                          "margin-bottom:10px;",
+                        ],
+                      },
+                      "displayName": "styles__FeelLikeText",
+                      "foldedComponentIds": Array [
+                        "styles__baseText-qxuzqr-0",
+                      ],
+                      "render": [Function],
+                      "styledComponentId": "styles__FeelLikeText-qxuzqr-4",
+                      "target": "p",
+                      "toString": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                >
+                  <p
+                    className="styles__baseText-qxuzqr-0 styles__FeelLikeText-qxuzqr-4 HkUZh"
+                  >
+                    Feel like
+                  </p>
+                </StyledComponent>
+              </styles__FeelLikeText>
+              <styles__FeelLikeText>
+                <StyledComponent
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "styles__FeelLikeText-qxuzqr-4",
+                        "isStatic": false,
+                        "lastClassName": "HkUZh",
+                        "rules": Array [
+                          "color:",
+                          "#fff",
+                          ";font-size:16px;",
+                          "margin-bottom:10px;",
+                        ],
+                      },
+                      "displayName": "styles__FeelLikeText",
+                      "foldedComponentIds": Array [
+                        "styles__baseText-qxuzqr-0",
+                      ],
+                      "render": [Function],
+                      "styledComponentId": "styles__FeelLikeText-qxuzqr-4",
+                      "target": "p",
+                      "toString": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
+                  }
+                  forwardedRef={null}
+                >
+                  <p
+                    className="styles__baseText-qxuzqr-0 styles__FeelLikeText-qxuzqr-4 HkUZh"
+                  >
+                    21º
+                  </p>
+                </StyledComponent>
+              </styles__FeelLikeText>
+            </div>
           </StyledComponent>
-        </styles__FeelLikeText>
+        </styles__WrapperFeel>
       </div>
     </StyledComponent>
   </styles__Wrapper>

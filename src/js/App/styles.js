@@ -13,7 +13,7 @@ const Body = styled.div`
 	display: flex;
 	width: 100%;
 	justify-content: flex-end;
-	margin-right: 150px;
+	margin-right: 100px;
 `;
 const Footer = styled.footer``;
 

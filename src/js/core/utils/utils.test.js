@@ -1,4 +1,10 @@
-import { validateObj, validateArray, validateParamsApi, validateNumber } from './index';
+import {
+	validateObj,
+	validateArray,
+	validateParamsApi,
+	validateNumber,
+	createObjByKeys
+} from './index';
 
 describe('validateObj function', () => {
 	test('empty object arg', () => {
@@ -93,5 +99,26 @@ describe('validateNumber function', () => {
 	});
 	test('number param', () => {
 		expect(validateNumber(4)).toBe(true);
+	});
+});
+
+describe('createObjByKeys function', () => {
+	test('params empty', () => {
+		expect(createObjByKeys()).toEqual({});
+	});
+	test('array param empty', () => {
+		const arr = [];
+		const obj = { a: '1', b: '2', c: '3' };
+		expect(createObjByKeys(arr, obj)).toEqual({});
+	});
+	test('obj param empty', () => {
+		const arr = ['a', 'b'];
+		const obj = {};
+		expect(createObjByKeys(arr, obj)).toEqual({});
+	});
+	test('obj param empty', () => {
+		const arr = ['a', 'b'];
+		const obj = { a: '1', b: '2', c: '3' };
+		expect(createObjByKeys(arr, obj)).toEqual({ a: '1', b: '2' });
 	});
 });

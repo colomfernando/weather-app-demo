@@ -8,7 +8,10 @@ const Temperature = ({ temperature, feelLike }) => {
 	return (
 		<Styles.Wrapper>
 			<Styles.TemperatureText>{`${Number.parseInt(temperature, 10)}º`}</Styles.TemperatureText>
-			<Styles.FeelLikeText>{`Feel like: ${Number.parseInt(feelLike, 10)}º`}</Styles.FeelLikeText>
+			<Styles.WrapperFeel>
+				<Styles.FeelLikeText>Feel like</Styles.FeelLikeText>
+				<Styles.FeelLikeText>{`${Number.parseInt(feelLike, 10)}º`}</Styles.FeelLikeText>
+			</Styles.WrapperFeel>
 		</Styles.Wrapper>
 	);
 };

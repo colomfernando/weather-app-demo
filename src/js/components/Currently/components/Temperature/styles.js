@@ -3,19 +3,26 @@ import { colors } from 'theme';
 
 const baseText = styled.p`
 	color: ${colors.white};
-	font-size: 18px;
+	font-size: 16px;
 `;
 
 const Wrapper = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
-	margin: 20px 0;
+`;
+
+const WrapperFeel = styled.div`
+	display: flex;
+	justify-content: space-between;
 `;
 
 const TemperatureText = styled(baseText)`
-	font-size: 64px;
+	font-size: 80px;
+	margin-bottom: 10px;
 `;
 
-const FeelLikeText = styled(baseText)``;
+const FeelLikeText = styled(baseText)`
+	margin-bottom: 10px;
+`;
 
-export default { Wrapper, TemperatureText, FeelLikeText };
+export default { Wrapper, WrapperFeel, TemperatureText, FeelLikeText };
