@@ -18,6 +18,7 @@ const App = () => {
 		getWeather({ lat: '-34.603722', lon: '-58.381592', units: 'si' })
 			.then(res => {
 				setLoading(true);
+				console.log('res :', res);
 				const {
 					currently: resCurrently = {},
 					daily: resDaily = {},

@@ -17,7 +17,7 @@ const WrapperIcon = styled.div`
 const WrapperInfo = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
-	width: 200px;
+	width: 250px;
 `;
 const Icon = styled(IconComponent)`
 	fill: ${colors.white};
