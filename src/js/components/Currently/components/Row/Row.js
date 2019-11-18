@@ -4,12 +4,14 @@ import { validateNumber } from 'core/utils';
 import Styles from './styles';
 
 const translateTitle = {
-	apparentTemperature: 'Feel like'
+	apparentTemperature: 'Feel like',
+	pressure: 'Pressure'
 };
 
 const parsedValue = {
 	apparentTemperature: value => `${value.toFixed()} º`,
-	humidity: value => `${value * 100} %`
+	humidity: value => `${value * 100} %`,
+	pressure: value => `${value.toFixed()} hPa`
 };
 
 const Row = ({ title, value }) => {

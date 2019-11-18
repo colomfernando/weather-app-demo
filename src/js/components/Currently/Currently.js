@@ -7,7 +7,7 @@ import Row from './components/Row';
 
 const Currently = ({ currently }) => {
 	const { temperature, icon } = currently;
-	const parsedData = createObjByKeys(['apparentTemperature', 'humidity'], currently);
+	const parsedData = createObjByKeys(['apparentTemperature', 'humidity', 'pressure'], currently);
 	return (
 		<Styles.Wrapper>
 			{icon && (
