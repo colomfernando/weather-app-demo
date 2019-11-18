@@ -3,22 +3,17 @@ import { number } from 'prop-types';
 import { validateNumber } from 'core/utils';
 import Styles from './styles';
 
-const Temperature = ({ temperature, feelLike }) => {
-	if (!validateNumber(temperature) || !validateNumber(feelLike)) return null;
-	return (
-		<Styles.Wrapper>
-			<Styles.TemperatureText>{`${Number.parseInt(temperature, 10)}º`}</Styles.TemperatureText>
-			<Styles.WrapperFeel>
-				<Styles.FeelLikeText>Feel like</Styles.FeelLikeText>
-				<Styles.FeelLikeText>{`${Number.parseInt(feelLike, 10)}º`}</Styles.FeelLikeText>
-			</Styles.WrapperFeel>
-		</Styles.Wrapper>
-	);
+const Temperature = ({ temperature }) => {
+	if (!validateNumber(temperature)) return null;
+	return <Styles.Text>{`${Number.parseInt(temperature, 10)}º`}</Styles.Text>;
 };
 
 Temperature.propTypes = {
-	temperature: number.isRequired,
-	feelLike: number.isRequired
+	temperature: number
+};
+
+Temperature.defaultProps = {
+	temperature: null
 };
 
 export default Temperature;

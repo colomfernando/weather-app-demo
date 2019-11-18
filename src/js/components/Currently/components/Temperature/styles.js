@@ -1,28 +1,10 @@
 import styled from 'styled-components';
 import { colors } from 'theme';
 
-const baseText = styled.p`
-	color: ${colors.white};
-	font-size: 16px;
-`;
-
-const Wrapper = styled.div`
-	display: flex;
-	flex-flow: column nowrap;
-`;
-
-const WrapperFeel = styled.div`
-	display: flex;
-	justify-content: space-between;
-`;
-
-const TemperatureText = styled(baseText)`
+const Text = styled.p`
 	font-size: 80px;
+	color: ${colors.white};
 	margin-bottom: 10px;
 `;
 
-const FeelLikeText = styled(baseText)`
-	margin-bottom: 10px;
-`;
-
-export default { Wrapper, WrapperFeel, TemperatureText, FeelLikeText };
+export default { Text };

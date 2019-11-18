@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import GlobalStyle from 'js/GlobalStyle';
 import Currently from 'components/Currently';
 import LocationText from 'components/LocationText';
+import InputSearch from 'components/InputSearch/InputSearch';
 import getWeather from 'core/api';
 import Styles from './styles';
 
@@ -37,7 +38,7 @@ const App = () => {
 			<Styles.Wrapper>
 				<Styles.Img src="assets/bk.jpg" />
 				<Styles.Header>
-					<input placeholder="search" />
+					<InputSearch />
 					<LocationText locationStr={timezone} />
 				</Styles.Header>
 				<Styles.Body>

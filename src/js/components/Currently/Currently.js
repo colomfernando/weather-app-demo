@@ -1,12 +1,13 @@
 import React from 'react';
 import { objectOf, any } from 'prop-types';
+import { createObjByKeys, validateObj } from 'core/utils';
 import Styles from './styles';
 import Temperature from './components/Temperature';
-import Humidity from './components/Humidity';
+import Row from './components/Row';
 
 const Currently = ({ currently }) => {
-	const { apparentTemperature, temperature, icon, humidity } = currently;
-	console.log('currently :', currently);
+	const { temperature, icon } = currently;
+	const parsedData = createObjByKeys(['apparentTemperature', 'humidity'], currently);
 	return (
 		<Styles.Wrapper>
 			{icon && (
@@ -14,10 +15,13 @@ const Currently = ({ currently }) => {
 					<Styles.Icon name={icon} size={60} />
 				</Styles.WrapperIcon>
 			)}
-			{temperature && apparentTemperature && (
+			{temperature && (
 				<Styles.WrapperInfo>
-					<Temperature temperature={temperature} feelLike={apparentTemperature} />
-					{humidity && <Humidity data={humidity} />}
+					<Temperature temperature={temperature} />
+					{validateObj(parsedData) &&
+						Object.keys(parsedData).map(key => (
+							<Row key={key} title={key} value={parsedData[key]} />
+						))}
 				</Styles.WrapperInfo>
 			)}
 		</Styles.Wrapper>
