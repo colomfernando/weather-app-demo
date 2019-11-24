@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import GlobalStyle from 'js/GlobalStyle';
 import Currently from 'components/Currently';
+import Daily from 'components/Daily';
 import LocationText from 'components/LocationText';
 import InputSearch from 'components/InputSearch/InputSearch';
 import getWeather from 'core/api';
@@ -45,7 +46,9 @@ const App = () => {
 				<Styles.Body>
 					<Currently currently={currently} />
 				</Styles.Body>
-				<Styles.Footer> footer</Styles.Footer>
+				<Styles.Footer>
+					<Daily data={daily.data} />
+				</Styles.Footer>
 			</Styles.Wrapper>
 		</>
 	);

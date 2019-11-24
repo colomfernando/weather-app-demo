@@ -23,7 +23,10 @@ const Body = styled.div`
 	margin-right: 80px;
 `;
 
-const Footer = styled.footer``;
+const Footer = styled.footer`
+	background-color: rgba(0, 0, 0, 0.3);
+	width: 100%;
+`;
 
 const Img = styled.img`
 	width: 100vw;
