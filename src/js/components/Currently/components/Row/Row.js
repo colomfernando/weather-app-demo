@@ -10,7 +10,7 @@ const translateTitle = {
 
 const parsedValue = {
 	apparentTemperature: value => `${value.toFixed()} º`,
-	humidity: value => `${value * 100} %`,
+	humidity: value => `${(value * 100).toFixed()} %`,
 	pressure: value => `${value.toFixed()} hPa`
 };
 
