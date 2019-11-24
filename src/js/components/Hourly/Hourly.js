@@ -21,16 +21,27 @@ const Hourly = ({ data }) => {
 	const params = {
 		spaceBetween: 10,
 		slidesPerView: 10,
-		grabCursor: true
+		grabCursor: true,
+		breakpoints: {
+			1000: {
+				slidesPerView: 10
+			},
+			599: {
+				slidesPerView: 6
+			},
+			320: {
+				slidesPerView: 4
+			}
+		}
 	};
 	return (
-		<div>
+		<>
 			<Swiper {...params}>
 				{eachHourly.map((obj, i) => (
 					<Card className="swiper-slide" key={i.toString()} {...obj} />
 				))}
 			</Swiper>
-		</div>
+		</>
 	);
 };
 

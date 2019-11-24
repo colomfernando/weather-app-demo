@@ -19,7 +19,7 @@ const App = () => {
 	const [error, setError] = useState(false);
 
 	useEffect(() => {
-		getWeather({ lat: '-34.603722', lon: '-58.381592', units: 'si' })
+		getWeather({ lat: '35.6895000', lon: '139.6917100', units: 'si' })
 			.then(res => {
 				setLoading(true);
 				const {
@@ -49,13 +49,15 @@ const App = () => {
 					<Currently currently={currently} />
 				</Styles.Body>
 				<Styles.Footer>
-					<Tabs
-						titles={['daily', 'hourly']}
-						childrens={[
-							validateObj(daily) && <Daily data={daily.data} />,
-							validateObj(hourly) && <Hourly data={hourly.data} />
-						]}
-					/>
+					{!loading && (
+						<Tabs
+							titles={['daily', 'hourly']}
+							childrens={[
+								validateObj(daily) && <Daily data={daily.data} />,
+								validateObj(hourly) && <Hourly data={hourly.data} />
+							]}
+						/>
+					)}
 				</Styles.Footer>
 			</Styles.Wrapper>
 		</>
