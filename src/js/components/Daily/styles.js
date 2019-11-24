@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from 'theme';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -8,6 +7,7 @@ const Wrapper = styled.div`
 	justify-content: center;
 	& .swiper-container {
 		height: 100%;
+		width: 100%;
 	}
 `;
 

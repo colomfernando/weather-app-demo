@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
 	display: grid;
-	grid-template-rows: 20% 55% 25%;
+	grid-template-rows: 20% 50% 30%;
 	justify-items: center;
 	width: 100vw;
 	height: 100vh;
@@ -25,6 +25,7 @@ const Body = styled.div`
 
 const Footer = styled.footer`
 	background-color: rgba(0, 0, 0, 0.5);
+	overflow: hidden;
 	width: 100%;
 `;
 

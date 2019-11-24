@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import GlobalStyle from 'js/GlobalStyle';
 import Currently from 'components/Currently';
+import { validateObj } from 'core/utils';
 import Daily from 'components/Daily';
 import LocationText from 'components/LocationText';
 import InputSearch from 'components/InputSearch/InputSearch';
 import getWeather from 'core/api';
+import Tabs from 'components/Tabs';
 import Styles from './styles';
 
 const App = () => {
@@ -47,7 +49,10 @@ const App = () => {
 					<Currently currently={currently} />
 				</Styles.Body>
 				<Styles.Footer>
-					<Daily data={daily.data} />
+					<Tabs
+						titles={['daily', 'hourly']}
+						childrens={[validateObj(daily) && <Daily data={daily.data} />]}
+					/>
 				</Styles.Footer>
 			</Styles.Wrapper>
 		</>
