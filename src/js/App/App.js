@@ -3,6 +3,7 @@ import GlobalStyle from 'js/GlobalStyle';
 import Currently from 'components/Currently';
 import { validateObj } from 'core/utils';
 import Daily from 'components/Daily';
+import Hourly from 'components/Hourly';
 import LocationText from 'components/LocationText';
 import InputSearch from 'components/InputSearch/InputSearch';
 import getWeather from 'core/api';
@@ -21,7 +22,6 @@ const App = () => {
 		getWeather({ lat: '-34.603722', lon: '-58.381592', units: 'si' })
 			.then(res => {
 				setLoading(true);
-				console.log('res :', res);
 				const {
 					currently: resCurrently = {},
 					daily: resDaily = {},
@@ -51,7 +51,10 @@ const App = () => {
 				<Styles.Footer>
 					<Tabs
 						titles={['daily', 'hourly']}
-						childrens={[validateObj(daily) && <Daily data={daily.data} />]}
+						childrens={[
+							validateObj(daily) && <Daily data={daily.data} />,
+							validateObj(hourly) && <Hourly data={hourly.data} />
+						]}
 					/>
 				</Styles.Footer>
 			</Styles.Wrapper>

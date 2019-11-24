@@ -11,7 +11,10 @@ const Tabs = ({ titles, childrens }) => {
 	return (
 		<Styles.Wrapper>
 			<Styles.WrapperTitle>
-				{!!titles &&
+				{!!childrens &&
+					!!childrens.length &&
+					childrens[actualIdx] &&
+					!!titles &&
 					!!titles.length &&
 					titles.map((title, i) => (
 						<Styles.Title
