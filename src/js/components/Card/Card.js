@@ -2,10 +2,10 @@ import React from 'react';
 import { string } from 'prop-types';
 import Styles from './styles';
 
-const Card = ({ icon, title, temperature }) => {
+const Card = ({ icon, title, temperature, ...rest }) => {
 	if (!icon || !title || !temperature) return null;
 	return (
-		<Styles.Wrapper>
+		<Styles.Wrapper {...rest}>
 			<Styles.Title>{title}</Styles.Title>
 			<Styles.Temperature>{temperature}</Styles.Temperature>
 			<Styles.Icon name={icon} size={40} />
