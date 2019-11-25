@@ -15,18 +15,20 @@ const Tabs = ({ titles, childrens }) => {
 	}, []);
 	return (
 		<Styles.Wrapper>
-			<Styles.WrapperTitle>
-				{!loading &&
-					childrens[actualIdx] &&
-					titles.map((title, i) => (
-						<Styles.Title
-							active={titles[actualIdx] === title}
-							onClick={() => setActualIdx(findTitleIdx(title))}
-							key={i.toString()}
-						>
-							{title}
-						</Styles.Title>
-					))}
+			<Styles.WrapperTitle actualIdx={actualIdx} lineWidth={100 / titles.length || 2}>
+				<Styles.Line active={actualIdx} lineWidth={100 / titles.length}>
+					{!loading &&
+						childrens[actualIdx] &&
+						titles.map((title, i) => (
+							<Styles.Title
+								active={titles[actualIdx] === title}
+								onClick={() => setActualIdx(findTitleIdx(title))}
+								key={i.toString()}
+							>
+								{title}
+							</Styles.Title>
+						))}
+				</Styles.Line>
 			</Styles.WrapperTitle>
 			<Styles.WrapperChildrens>
 				{!loading && childrens[actualIdx] && childrens[actualIdx]}

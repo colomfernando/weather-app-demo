@@ -6,8 +6,15 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
-	padding: 10px;
+	padding: 10px 15px;
 	height: 100%;
+	margin-right: 10px;
+	&:first-child {
+		margin-left: auto;
+	}
+	&:last-child {
+		margin-right: auto;
+	}
 `;
 
 const Title = styled.p`
@@ -16,7 +23,7 @@ const Title = styled.p`
 `;
 
 const Temperature = styled.p`
-	font-size: 32px;
+	font-size: 28px;
 	color: ${colors.white};
 	margin: 15px 0;
 `;

@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from 'components/Card';
-import Swiper from 'react-id-swiper';
 import { arrayOf, object } from 'prop-types';
 import { validateArray, validateObj, createDate } from 'core/utils';
 
@@ -18,29 +17,11 @@ const parseHourly = obj => {
 const Hourly = ({ data }) => {
 	const eachHourly = data.map(obj => parseHourly(obj));
 	if (!validateArray(data)) return null;
-	const params = {
-		spaceBetween: 10,
-		slidesPerView: 10,
-		grabCursor: true,
-		breakpoints: {
-			1000: {
-				slidesPerView: 10
-			},
-			599: {
-				slidesPerView: 6
-			},
-			320: {
-				slidesPerView: 4
-			}
-		}
-	};
 	return (
 		<>
-			<Swiper {...params}>
-				{eachHourly.map((obj, i) => (
-					<Card className="swiper-slide" key={i.toString()} {...obj} />
-				))}
-			</Swiper>
+			{eachHourly.map((obj, i) => (
+				<Card key={i.toString()} {...obj} />
+			))}
 		</>
 	);
 };
