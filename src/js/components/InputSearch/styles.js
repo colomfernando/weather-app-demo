@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from 'theme';
+import { colors, mediaQuery } from 'theme';
 import IconComponent from 'components/Icon';
 
 const Wrapper = styled.div`
@@ -10,6 +10,9 @@ const Wrapper = styled.div`
 	padding: 10px 20px;
 	max-width: 300px;
 	width: 100%;
+	${mediaQuery.mobile`
+		width: 100%;
+	`}
 `;
 const Input = styled.input`
 	outline: none;

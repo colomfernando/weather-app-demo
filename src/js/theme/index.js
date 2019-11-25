@@ -1,11 +1,13 @@
 import typography from './typography';
 import colors from './colors';
+import mediaQuery from './mediaQuery';
 
 const theme = {
 	typography,
-	colors
+	colors,
+	mediaQuery
 };
 
 export default theme;
 
-export { typography, colors };
+export { typography, colors, mediaQuery };
