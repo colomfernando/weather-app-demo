@@ -23,7 +23,7 @@ const Line = styled.div`
 		width: ${({ lineWidth }) => lineWidth && `${lineWidth}%`};
 		height: 3px;
 		background-color: ${colors.white};
-		bottom: -5px;
+		bottom: -10px;
 		left: ${({ active, lineWidth }) => (lineWidth && active !== 0 ? `${lineWidth * active}%` : 0)};
 		transition: all 0.07s linear;
 	}
@@ -45,7 +45,7 @@ const Title = styled.p`
 const WrapperChildrens = styled.div`
 	margin: auto 0;
 	display: flex;
-	padding-bottom: 5px;
+	padding: 0 20px 5px;
 	overflow-x: auto;
 
 	&::-webkit-scrollbar {
