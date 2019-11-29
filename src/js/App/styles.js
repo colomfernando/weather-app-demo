@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { mediaQuery } from 'theme';
 
 const Wrapper = styled.div`
 	display: grid;
@@ -21,6 +22,10 @@ const Body = styled.div`
 	width: 100%;
 	justify-content: flex-end;
 	margin-right: 80px;
+	${mediaQuery.mobile`
+		margin-right: 0;
+		justify-content: center;
+	`}
 `;
 
 const Footer = styled.footer`

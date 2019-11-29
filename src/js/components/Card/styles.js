@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.p`
-	fint-size: 20px;
+	font-size: 18px;
 	color: ${colors.white};
 `;
 

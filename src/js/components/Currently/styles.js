@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from 'theme';
+import { colors, mediaQuery } from 'theme';
 import IconComponent from 'components/Icon';
 
 const Wrapper = styled.div`
@@ -7,17 +7,29 @@ const Wrapper = styled.div`
 	padding: 30px;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
+	${mediaQuery.mobile`
+		padding: 20px;
+		width: 100%;
+	`};
 `;
 
 const WrapperIcon = styled.div`
 	display: flex;
 	justify-content: center;
 	padding: 25px;
+	${mediaQuery.mobile`
+		padding: 0;
+		margin-left: auto;
+	`}
 `;
 const WrapperInfo = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
 	width: 250px;
+	${mediaQuery.mobile`
+		width: 70%;
+		margin-left: auto;
+	`}
 `;
 const Icon = styled(IconComponent)`
 	fill: ${colors.white};
