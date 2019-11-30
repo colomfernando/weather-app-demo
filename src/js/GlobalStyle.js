@@ -88,6 +88,13 @@ select {
   text-transform: none;
 }
 
+button {
+	outline: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
 button,
 [type="button"],
 [type="reset"],

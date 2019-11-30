@@ -29,11 +29,15 @@ export const getLocationFromBrowser = async () => {
 			const { coords } = position;
 			if (!coords) return {};
 			const { latitude, longitude } = coords;
-			return { lat: latitude, lon: longitude };
+			return { lat: latitude, lon: longitude, error: null };
 		}
-		return {};
+		return {
+			error: 'error'
+		};
 	} catch (reason) {
-		return {};
+		return {
+			error: 'error'
+		};
 	}
 };
 
