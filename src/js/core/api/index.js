@@ -17,4 +17,24 @@ const getWeather = async (params = {}) => {
 	}
 };
 
+const getPosition = () =>
+	new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition(resolve, reject));
+
+export const getLocationFromBrowser = async () => {
+	try {
+		const { navigator } = window;
+		if ('geolocation' in navigator) {
+			const position = await getPosition();
+			if (!position) return {};
+			const { coords } = position;
+			if (!coords) return {};
+			const { latitude, longitude } = coords;
+			return { lat: latitude, lon: longitude };
+		}
+		return {};
+	} catch (reason) {
+		return {};
+	}
+};
+
 export { getWeather as default };

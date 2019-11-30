@@ -4,15 +4,24 @@ import IconComponent from 'components/Icon';
 
 const Wrapper = styled.div`
 	display: flex;
-	margin-bottom: 10px;
-	border-radius: 20px;
+	flex-flow: column nowrap;
+	position: relative;
+	max-width: 400px;
+	width: 100%;
+`;
+
+const WrapperInput = styled.div`
+	display: flex;
+	border-radius: 5px;
 	background-color: ${colors.white};
 	padding: 10px 20px;
-	max-width: 300px;
-	width: 100%;
-	${mediaQuery.mobile`
-		width: 100%;
+	${({ hasResults }) =>
+		hasResults &&
+		`
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
 	`}
+	width: 100%;
 `;
 const Input = styled.input`
 	outline: none;
@@ -30,6 +39,7 @@ const Icon = styled(IconComponent)`
 
 export default {
 	Wrapper,
+	WrapperInput,
 	Icon,
 	Input
 };
