@@ -45,8 +45,9 @@ const Title = styled.p`
 const WrapperChildrens = styled.div`
 	margin: auto 0;
 	display: flex;
-	padding: 0 20px 5px;
+	padding: 0 10px 5px;
 	overflow-x: auto;
+	width: 100%;
 
 	&::-webkit-scrollbar {
 		width: 5px;

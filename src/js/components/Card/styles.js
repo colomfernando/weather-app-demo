@@ -1,14 +1,15 @@
 import styled from 'styled-components';
-import { colors } from 'theme';
+import { colors, mediaQuery } from 'theme';
 import IconComponent from 'components/Icon';
 
 const Wrapper = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
 	align-items: center;
-	padding: 10px 15px;
+	padding: 10px;
 	height: 100%;
 	margin-right: 10px;
+	flex: 1 0 140px;
 	&:first-child {
 		margin-left: auto;
 	}
@@ -26,6 +27,9 @@ const Temperature = styled.p`
 	font-size: 28px;
 	color: ${colors.white};
 	margin: 15px 0;
+	${mediaQuery.mobile`
+		font-size: 20px;
+	`}
 `;
 const Icon = styled(IconComponent)`
 	fill: ${colors.white};
