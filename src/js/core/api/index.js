@@ -31,12 +31,9 @@ export const getLocationFromBrowser = async () => {
 			const { latitude, longitude } = coords;
 			return { lat: latitude, lon: longitude, error: null };
 		}
-		return {
-			error: 'location is not available'
-		};
 	} catch (reason) {
 		return {
-			error: 'error'
+			error: reason.message
 		};
 	}
 };

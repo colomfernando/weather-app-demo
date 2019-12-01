@@ -16,7 +16,8 @@ const getWeatherFromLocation = () => async dispatch => {
 	try {
 		dispatch(actions.setLoading(true));
 		const { lat, lon, error } = await getLocationFromBrowser();
-		if (error || !lat || !lon) return;
+		if (error) dispatch(actions.setError({ geolocation: true }));
+		if (!lat || !lon) return;
 		const params = {
 			lat: lat.toString(),
 			lon: lon.toString()

@@ -4,6 +4,7 @@ import { validateArray } from 'core/utils';
 import Styles from './styles';
 
 const LocationText = ({ locationStr }) => {
+	if (!locationStr) return null;
 	const regex = new RegExp(/_|-/, 'g');
 	const parseTimeZone = validateArray(locationStr.split('/')) ? locationStr.split('/').pop() : '';
 	const sanitizeLocation = parseTimeZone.replace(regex, ' ');

@@ -11,7 +11,8 @@ const initialState = {
 		timezone: false,
 		currently: false,
 		daily: false,
-		hourly: false
+		hourly: false,
+		geolocation: false
 	}
 };
 
@@ -21,6 +22,8 @@ const reducer = (state = initialState, action) => {
 			return { ...state, loading: action.payload };
 		case types.SET_ERROR:
 			return { ...state, error: { ...state.error, ...action.payload } };
+		case types.SET_TIMEZONE:
+			return { ...state, timezone: action.payload };
 		case types.SET_CURRENTLY:
 			return { ...state, currently: action.payload };
 		case types.SET_DAILY:

@@ -31,7 +31,12 @@ const Currently = ({ currently, timezone }) => {
 };
 
 Currently.propTypes = {
-	currently: objectOf(any).isRequired,
-	timezone: string.isRequired
+	currently: objectOf(any),
+	timezone: string
+};
+
+Currently.defaultProps = {
+	currently: {},
+	timezone: ''
 };
 export default Currently;
