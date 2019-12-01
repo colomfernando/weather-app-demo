@@ -11,10 +11,11 @@ import Tabs from 'components/Tabs';
 import Styles from './styles';
 
 const App = ({ getWeatherFromLocation }) => {
-	const { loading, currently, timezone, daily, hourly } = useSelector(state => state);
+	const { loading, currently, timezone, daily, hourly, error } = useSelector(state => state);
 	useEffect(() => {
 		getWeatherFromLocation();
 	}, []);
+	console.log('error :', error);
 	return (
 		<>
 			<GlobalStyle />
