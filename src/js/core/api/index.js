@@ -3,7 +3,7 @@ import { validateParamsApi, validateObj } from '../utils';
 
 const API = 'https://api.colomfernando.dev/demos/weather';
 
-const getWeather = async (params = {}) => {
+export const getWeather = async (params = {}) => {
 	try {
 		if (!validateParamsApi(params)) return {};
 		const { lat, lon, units = 'si' } = params;
@@ -32,7 +32,7 @@ export const getLocationFromBrowser = async () => {
 			return { lat: latitude, lon: longitude, error: null };
 		}
 		return {
-			error: 'error'
+			error: 'location is not available'
 		};
 	} catch (reason) {
 		return {
@@ -40,5 +40,3 @@ export const getLocationFromBrowser = async () => {
 		};
 	}
 };
-
-export { getWeather as default };
