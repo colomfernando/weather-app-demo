@@ -34,6 +34,7 @@ const getWeatherFromLocation = () => async dispatch => {
 		dispatch(actions.setDaily(daily));
 		dispatch(actions.setHourly(hourly));
 		dispatch(actions.setTimeZone(timezone));
+		dispatch(actions.setGeoLocationActive(true));
 		dispatch(actions.setLoading(false));
 	} catch (reason) {
 		dispatch(actions.setError({ apiWeather: true }));

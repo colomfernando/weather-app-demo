@@ -1,15 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { searchLocation } from 'core/api';
+import { debounce } from 'core/utils';
 import Styles from './styles';
 import Results from './components/Results';
 
 const InputSearch = () => {
 	const [showResults, setShowResults] = useState(false);
-	const handleClick = () => setShowResults(!showResults);
+	const [isOpen, setIsOpen] = useState(false);
+	const [searchVal, setSearchVal] = useState('');
+	const node = useRef(null);
+	const handleOnChange = event => setSearchVal(event.target.value);
+	const debounceSearch = useCallback(
+		debounce(value => searchLocation(value), 300),
+		[]
+	);
+	const handleOnClick = event => {
+		if (!node.current.contains(event.target)) {
+			setIsOpen(false);
+			return setShowResults(false);
+		}
+		setShowResults(true);
+		return setIsOpen(true);
+	};
+
+	useEffect(() => {
+		document.addEventListener('click', handleOnClick);
+		return document.removeEventListener('click', handleOnChange);
+	}, []);
+
+	useEffect(() => {
+		if (searchVal.length > 2) debounceSearch(searchVal);
+	}, [searchVal]);
 	return (
-		<Styles.Wrapper>
+		<Styles.Wrapper ref={node}>
 			<Styles.WrapperInput hasResults={showResults}>
-				<Styles.Input placeholder="search location" onClick={handleClick} />
+				<Styles.Input
+					placeholder="search location"
+					onClick={handleOnClick}
+					value={searchVal}
+					onChange={handleOnChange}
+				/>
 				<Styles.Icon name="search" size={25} />
+				{searchVal.length < 3 && isOpen && <Styles.Error>Enter at least 3 characters</Styles.Error>}
 			</Styles.WrapperInput>
 			{showResults && <Results />}
 		</Styles.Wrapper>

@@ -15,6 +15,7 @@ const WrapperInput = styled.div`
 	border-radius: 5px;
 	background-color: ${colors.white};
 	padding: 10px 20px;
+	flex-wrap: wrap;
 	${({ hasResults }) =>
 		hasResults &&
 		`
@@ -37,9 +38,16 @@ const Icon = styled(IconComponent)`
 	fill: ${colors.black};
 `;
 
+const Error = styled.span`
+	flex-basis: 100%;
+	font-size: 12px;
+	color: ${colors.error.main};
+`;
+
 export default {
 	Wrapper,
 	WrapperInput,
 	Icon,
-	Input
+	Input,
+	Error
 };

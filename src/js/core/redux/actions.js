@@ -30,8 +30,14 @@ const setError = res => ({
 	payload: res
 });
 
+const setGeoLocationActive = res => ({
+	type: types.SET_GEOLOCATION_ACTIVE,
+	payload: res
+});
+
 export default {
 	setCurrently,
+	setGeoLocationActive,
 	setDaily,
 	setHourly,
 	setTimeZone,

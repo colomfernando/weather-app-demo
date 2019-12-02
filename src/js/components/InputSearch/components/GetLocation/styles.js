@@ -17,7 +17,10 @@ const Wrapper = styled.button`
 	}
 `;
 const Icon = styled(IconComponent)`
-	margin-right: 10px;
+	margin-right: 5px;
+	stroke-width: 10px;
+	stroke: ${colors.primary};
+	fill: ${({ isActive }) => (isActive ? colors.primary : 'none')};
 `;
 
 const Text = styled.p`

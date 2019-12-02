@@ -6,6 +6,7 @@ const initialState = {
 	daily: {},
 	hourly: {},
 	loading: false,
+	geoLocationActive: false,
 	error: {
 		apiWeather: false,
 		timezone: false,
@@ -30,6 +31,8 @@ const reducer = (state = initialState, action) => {
 			return { ...state, daily: action.payload };
 		case types.SET_HOURLY:
 			return { ...state, hourly: action.payload };
+		case types.SET_GEOLOCATION_ACTIVE:
+			return { ...state, geoLocationActive: action.payload };
 		default:
 			return state;
 	}

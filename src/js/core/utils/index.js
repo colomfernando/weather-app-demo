@@ -22,6 +22,18 @@ export const createObjByKeys = (filterKeys = [], obj = {}) => {
 	}, {});
 };
 
+export function debounce(func, wait) {
+	let timeout;
+	return function(...args) {
+		const context = this;
+		if (timeout) clearTimeout(timeout);
+		timeout = setTimeout(() => {
+			timeout = null;
+			func.apply(context, args);
+		}, wait);
+	};
+}
+
 export const createDate = unixTime => {
 	if (!validateNumber(unixTime)) return null;
 	const date = new Date(unixTime * 1000);

@@ -17,7 +17,7 @@ const colors = {
 		900: '#212121'
 	},
 	error: {
-		main: '#cc0000'
+		main: '#D8000C'
 	}
 };
 
