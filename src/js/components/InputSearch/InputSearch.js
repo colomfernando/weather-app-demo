@@ -1,19 +1,16 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { searchLocation } from 'core/api';
+import { func } from 'prop-types';
 import { debounce } from 'core/utils';
 import Styles from './styles';
 import Results from './components/Results';
 
-const InputSearch = () => {
+const InputSearch = ({ getLocationResults }) => {
 	const [showResults, setShowResults] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 	const [searchVal, setSearchVal] = useState('');
 	const node = useRef(null);
 	const handleOnChange = event => setSearchVal(event.target.value);
-	const debounceSearch = useCallback(
-		debounce(value => searchLocation(value), 300),
-		[]
-	);
+	const debounceGetLocationResults = useCallback(debounce(getLocationResults, 300), []);
 	const handleOnClick = event => {
 		if (!node.current.contains(event.target)) {
 			setIsOpen(false);
@@ -27,9 +24,8 @@ const InputSearch = () => {
 		document.addEventListener('click', handleOnClick);
 		return document.removeEventListener('click', handleOnChange);
 	}, []);
-
 	useEffect(() => {
-		if (searchVal.length > 2) debounceSearch(searchVal);
+		if (searchVal.length > 2) debounceGetLocationResults(searchVal);
 	}, [searchVal]);
 	return (
 		<Styles.Wrapper ref={node}>
@@ -46,5 +42,13 @@ const InputSearch = () => {
 			{showResults && <Results />}
 		</Styles.Wrapper>
 	);
+};
+
+InputSearch.propTypes = {
+	getLocationResults: func
+};
+
+InputSearch.defaultProps = {
+	getLocationResults: () => {}
 };
 export default InputSearch;

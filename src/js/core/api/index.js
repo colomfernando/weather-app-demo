@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { validateParamsApi, validateObj, validateArray } from '../utils';
+import { validateParamsApi, validateObj, validateArray, debounce } from '../utils';
 
 const APIWEATHER = 'https://api.colomfernando.dev/demos/weather';
 const APILOCATION =
@@ -41,6 +41,26 @@ export const getLocationFromBrowser = async () => {
 	}
 };
 
+const getCoordsAndProps = obj => {
+	if (!validateObj(obj)) return [];
+	const { geometry = {}, properties = {} } = obj;
+	if (!validateObj(geometry)) return [];
+	const { coordinates = [] } = geometry;
+	if (!validateArray(coordinates)) return [];
+	return { coordinates, properties };
+};
+
+const parseResults = obj => {
+	if (!validateArray(obj)) return {};
+	const parsedData = obj.reduce((acc, act) => {
+		const item = act;
+		const { place, displayString, name, slug, id } = item;
+		const data = { id, name, slug, ...getCoordsAndProps(place), displayString };
+		return [...acc, data];
+	}, []);
+	return parsedData;
+};
+
 export const searchLocation = async (value = '') => {
 	try {
 		if (!value || typeof value !== 'string') return {};
@@ -48,10 +68,9 @@ export const searchLocation = async (value = '') => {
 		if (!validateObj(data)) return [];
 		const { results } = data;
 		if (!validateArray(results)) return [];
-		console.log('result :', results);
-		return results;
+		const parsedResults = parseResults(results);
+		return parsedResults;
 	} catch (reason) {
-		console.log('reason :', reason);
 		return [];
 	}
 };

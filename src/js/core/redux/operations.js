@@ -1,5 +1,5 @@
-import { getWeather, getLocationFromBrowser } from 'core/api';
-import { validateObj } from 'core/utils';
+import { getWeather, getLocationFromBrowser, searchLocation } from 'core/api';
+import { validateObj, validateArray } from 'core/utils';
 import actions from './actions';
 
 const setErrorIfExist = (data, dispatch) => {
@@ -39,8 +39,23 @@ const getWeatherFromLocation = () => async dispatch => {
 	} catch (reason) {
 		dispatch(actions.setError({ apiWeather: true }));
 		dispatch(actions.setLoading(false));
-		console.log('reason :', reason);
 	}
 };
 
-export default { getWeatherFromLocation };
+const getLocationResults = value => async dispatch => {
+	try {
+		if (!value || typeof value !== 'string') {
+			dispatch(actions.setLocationResults([]));
+		}
+		const results = await searchLocation(value);
+		if (!validateArray(results)) {
+			dispatch(actions.setLocationResults([]));
+		} else {
+			dispatch(actions.setLocationResults(results));
+		}
+	} catch (reason) {
+		dispatch(actions.setLocationResults([]));
+	}
+};
+
+export default { getWeatherFromLocation, getLocationResults };

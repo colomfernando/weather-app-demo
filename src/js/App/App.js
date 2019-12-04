@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { validateObj } from 'core/utils';
 import Daily from 'components/Daily';
 import Hourly from 'components/Hourly';
-import InputSearch from 'components/InputSearch/InputSearch';
+import InputSearch from 'components/InputSearch';
 import Tabs from 'components/Tabs';
 import Styles from './styles';
 

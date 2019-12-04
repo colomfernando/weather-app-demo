@@ -35,6 +35,11 @@ const setGeoLocationActive = res => ({
 	payload: res
 });
 
+const setLocationResults = res => ({
+	type: types.SET_LOCATION_RESULTS,
+	payload: res
+});
+
 export default {
 	setCurrently,
 	setGeoLocationActive,
@@ -42,5 +47,6 @@ export default {
 	setHourly,
 	setTimeZone,
 	setLoading,
-	setError
+	setError,
+	setLocationResults
 };
