@@ -16,6 +16,13 @@ const Wrapper = styled.div`
 	padding: 10px;
 `;
 
+const WrapperResults = styled.div`
+	display: flex;
+	flex-flow: column nowrap;
+	margin-top: 10px;
+`;
+
 export default {
-	Wrapper
+	Wrapper,
+	WrapperResults
 };

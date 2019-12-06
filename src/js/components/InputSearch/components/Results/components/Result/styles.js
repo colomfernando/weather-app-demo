@@ -1,3 +1,7 @@
 import styled from 'styled-components';
 
-export default {};
+const Button = styled.button`
+	display: inline-flex;
+	padding: 5px;
+`;
+export default { Button };

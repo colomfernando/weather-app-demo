@@ -10,7 +10,7 @@ const InputSearch = ({ getLocationResults }) => {
 	const [searchVal, setSearchVal] = useState('');
 	const node = useRef(null);
 	const handleOnChange = event => setSearchVal(event.target.value);
-	const debounceGetLocationResults = useCallback(debounce(getLocationResults, 300), []);
+	const debounceGetLocationResults = useCallback(debounce(getLocationResults, 200), []);
 	const handleOnClick = event => {
 		if (!node.current.contains(event.target)) {
 			setIsOpen(false);
