@@ -22,6 +22,7 @@ const getWeatherFromLocation = () => async dispatch => {
 			lat: lat.toString(),
 			lon: lon.toString()
 		};
+		console.log('location :');
 		const data = await getWeather({ ...params });
 		if (!validateObj(data)) {
 			dispatch(actions.setError({ apiWeather: true }));

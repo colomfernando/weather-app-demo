@@ -10,11 +10,8 @@ import InputSearch from 'components/InputSearch';
 import Tabs from 'components/Tabs';
 import Styles from './styles';
 
-const App = ({ getWeatherFromLocation }) => {
+const App = () => {
 	const { loading, currently, timezone, daily, hourly } = useSelector(state => state);
-	useEffect(() => {
-		getWeatherFromLocation();
-	}, []);
 	return (
 		<>
 			<GlobalStyle />

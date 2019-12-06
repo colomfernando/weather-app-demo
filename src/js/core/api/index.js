@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { validateParamsApi, validateObj, validateArray, debounce } from '../utils';
+import { validateParamsApi, validateObj, validateArray } from '../utils';
 
 const APIWEATHER = 'https://api.colomfernando.dev/demos/weather';
 const APILOCATION =
-	'https://www.mapquestapi.com/search/v3/prediction?key=RJvnH1bDTpYyInTGHSIy56VNAGnX2M6l&limit=15&collection=adminArea,address,category&q=';
+	'https://www.mapquestapi.com/search/v3/prediction?key=RJvnH1bDTpYyInTGHSIy56VNAGnX2M6l&limit=15&collection=adminArea,address,airport,category&q=';
 
 export const getWeather = async (params = {}) => {
 	try {

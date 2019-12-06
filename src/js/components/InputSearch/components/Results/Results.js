@@ -9,16 +9,17 @@ const Results = ({ getWeatherFromLocation, setWeather }) => {
 	const geoLocationActive = useSelector(state => state.geoLocationActive);
 	const locationResults = useSelector(state => state.locationResults);
 	return (
-		<Styles.Wrapper onClick={getWeatherFromLocation}>
+		<Styles.Wrapper>
 			<GetLocation
 				iconName="target"
 				iconSize={15}
 				text="use current location"
 				isActive={geoLocationActive}
+				onClick={getWeatherFromLocation}
 			/>
 			{!!locationResults.length && (
 				<Styles.WrapperResults>
-					{locationResults.slice(0, 5).map(result => (
+					{locationResults.slice(0, 8).map(result => (
 						<Result key={result.id} {...result} setWeather={setWeather} />
 					))}
 				</Styles.WrapperResults>
