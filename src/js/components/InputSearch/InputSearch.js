@@ -14,10 +14,17 @@ const InputSearch = ({ getLocationResults }) => {
 	const handleOnClick = event => {
 		if (!node.current.contains(event.target)) {
 			setIsOpen(false);
+			setSearchVal('');
 			return setShowResults(false);
 		}
 		setShowResults(true);
 		return setIsOpen(true);
+	};
+
+	const handleClickResult = value => {
+		if (!value) return;
+		setSearchVal(value);
+		setIsOpen(false);
 	};
 
 	useEffect(() => {
@@ -39,7 +46,7 @@ const InputSearch = ({ getLocationResults }) => {
 				<Styles.Icon name="search" size={25} />
 				{searchVal.length < 3 && isOpen && <Styles.Error>Enter at least 3 characters</Styles.Error>}
 			</Styles.WrapperInput>
-			{showResults && <Results />}
+			{showResults && <Results handleClickResult={handleClickResult} />}
 		</Styles.Wrapper>
 	);
 };

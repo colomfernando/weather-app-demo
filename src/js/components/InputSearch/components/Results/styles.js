@@ -20,6 +20,19 @@ const WrapperResults = styled.div`
 	display: flex;
 	flex-flow: column nowrap;
 	margin-top: 10px;
+	height: auto;
+	overflow-y: auto;
+	max-height: 215px;
+	&::-webkit-scrollbar {
+		width: 5px;
+		height: 5px;
+		background-color: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 5px;
+		background-color: ${colors.grey[600]};
+	}
 `;
 
 export default {
