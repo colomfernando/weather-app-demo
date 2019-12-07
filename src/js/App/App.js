@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { func } from 'prop-types';
+import React from 'react';
 import GlobalStyle from 'js/GlobalStyle';
 import Currently from 'components/Currently';
 import { useSelector } from 'react-redux';
@@ -8,6 +7,7 @@ import Daily from 'components/Daily';
 import Hourly from 'components/Hourly';
 import InputSearch from 'components/InputSearch';
 import Tabs from 'components/Tabs';
+import SkeletonCard from 'components/SkeletonCard';
 import Styles from './styles';
 
 const App = () => {
@@ -21,15 +21,22 @@ const App = () => {
 					<InputSearch />
 				</Styles.Header>
 				<Styles.Body>
-					<Currently currently={currently} timezone={timezone} />
+					<Currently loading={loading} currently={currently} timezone={timezone} />
 				</Styles.Body>
 				<Styles.Footer>
-					{!loading && (
+					{loading && (
+						<Styles.WrapperSkeleton>
+							{[...Array(12).keys()].map(idx => (
+								<SkeletonCard key={idx.toString()} />
+							))}
+						</Styles.WrapperSkeleton>
+					)}
+					{!loading && validateObj(daily) && validateObj(hourly) && (
 						<Tabs
 							titles={['daily', 'hourly']}
 							childrens={[
-								validateObj(daily) && <Daily data={daily.data} />,
-								validateObj(hourly) && <Hourly data={hourly.data} />
+								<Daily key="daily" data={daily.data} />,
+								<Hourly key="hourly" data={hourly.data} />
 							]}
 						/>
 					)}
@@ -37,14 +44,6 @@ const App = () => {
 			</Styles.Wrapper>
 		</>
 	);
-};
-
-App.propTypes = {
-	getWeatherFromLocation: func
-};
-
-App.defaultProps = {
-	getWeatherFromLocation: () => {}
 };
 
 export default App;
