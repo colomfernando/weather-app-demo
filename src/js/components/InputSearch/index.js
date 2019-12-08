@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import operations from 'core/redux/operations';
+import { operations } from 'core/redux/weather';
 import InputSearch from './InputSearch';
 
 const mapDispatchToProps = dispatch =>
