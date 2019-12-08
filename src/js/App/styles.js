@@ -42,17 +42,10 @@ const Img = styled.img`
 	filter: brightness(40%);
 `;
 
-const WrapperSkeleton = styled.div`
-	display: flex;
-	height: 100%;
-	overflow-y: auto;
-`;
-
 export default {
 	Wrapper,
 	Img,
 	Header,
 	Body,
-	WrapperSkeleton,
 	Footer
 };

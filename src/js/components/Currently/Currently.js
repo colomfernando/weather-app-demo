@@ -1,24 +1,22 @@
 import React from 'react';
-import { objectOf, any, string, bool } from 'prop-types';
+import { objectOf, any, string } from 'prop-types';
 import { createObjByKeys, validateObj } from 'core/utils';
 import LocationText from 'components/LocationText';
 import Styles from './styles';
 import Temperature from './components/Temperature';
 import Row from './components/Row';
-import SkeletonCurrently from './components/SkeletonCurrently';
 
-const Currently = ({ currently, timezone, loading }) => {
+const Currently = ({ currently, timezone }) => {
 	const { temperature, icon } = currently;
 	const parsedData = createObjByKeys(['apparentTemperature', 'humidity', 'pressure'], currently);
 	return (
 		<Styles.Wrapper>
-			{loading && <SkeletonCurrently />}
-			{!loading && icon && (
+			{icon && (
 				<Styles.WrapperIcon>
 					<Styles.Icon name={icon} size={60} />
 				</Styles.WrapperIcon>
 			)}
-			{!loading && temperature && (
+			{temperature && (
 				<Styles.WrapperInfo>
 					<LocationText locationStr={timezone} />
 					<Temperature temperature={temperature} />
@@ -34,13 +32,11 @@ const Currently = ({ currently, timezone, loading }) => {
 
 Currently.propTypes = {
 	currently: objectOf(any),
-	timezone: string,
-	loading: bool
+	timezone: string
 };
 
 Currently.defaultProps = {
 	currently: {},
-	timezone: '',
-	loading: false
+	timezone: ''
 };
 export default Currently;
