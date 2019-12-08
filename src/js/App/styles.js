@@ -41,11 +41,17 @@ const Img = styled.img`
 	z-index: -1;
 	filter: brightness(40%);
 `;
+const WrapperSkeleton = styled.div`
+	display: flex;
+	height: 100%;
+	overflow-y: auto;
+`;
 
 export default {
 	Wrapper,
 	Img,
 	Header,
 	Body,
-	Footer
+	Footer,
+	WrapperSkeleton
 };
