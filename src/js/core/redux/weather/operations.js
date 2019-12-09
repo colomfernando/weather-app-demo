@@ -1,5 +1,5 @@
 import { getWeather, getLocationFromBrowser, searchLocation } from 'core/api';
-import { validateObj, validateArray, debounce } from 'core/utils';
+import { validateObj, validateArray } from 'core/utils';
 import actions from './actions';
 
 const setErrorIfExist = (data, dispatch) => {
@@ -10,6 +10,19 @@ const setErrorIfExist = (data, dispatch) => {
 	Object.keys(data).map(
 		key => !validateObj(data[key]) && dispatch(actions.setError({ [key]: true }))
 	);
+};
+
+const saveData = (data, dispatch) => {
+	if (!validateObj(data)) return;
+	const { currently, daily, hourly, timezone } = data;
+	setErrorIfExist({ currently, daily, hourly }, dispatch);
+	if (!timezone) dispatch(actions.setError({ timezone: true }));
+	dispatch(actions.setCurrently(currently));
+	dispatch(actions.setDaily(daily));
+	dispatch(actions.setHourly(hourly));
+	dispatch(actions.setTimeZone(timezone));
+	dispatch(actions.setGeoLocationActive(false));
+	dispatch(actions.setLoading(false));
 };
 
 const getWeatherFromLocation = () => async dispatch => {
@@ -27,15 +40,7 @@ const getWeatherFromLocation = () => async dispatch => {
 			dispatch(actions.setError({ apiWeather: true }));
 			return;
 		}
-		const { currently, daily, hourly, timezone } = data;
-		setErrorIfExist({ currently, daily, hourly }, dispatch);
-		if (!timezone) dispatch(actions.setError({ timezone: true }));
-		dispatch(actions.setCurrently(currently));
-		dispatch(actions.setDaily(daily));
-		dispatch(actions.setHourly(hourly));
-		dispatch(actions.setTimeZone(timezone));
-		dispatch(actions.setGeoLocationActive(true));
-		dispatch(actions.setLoading(false));
+		saveData(data, dispatch);
 	} catch (reason) {
 		dispatch(actions.setError({ apiWeather: true }));
 		dispatch(actions.setLoading(false));
@@ -60,15 +65,7 @@ const setWeather = data => async dispatch => {
 			dispatch(actions.setError({ apiWeather: true }));
 			return;
 		}
-		const { currently, daily, hourly, timezone } = response;
-		setErrorIfExist({ currently, daily, hourly }, dispatch);
-		if (!timezone) dispatch(actions.setError({ timezone: true }));
-		dispatch(actions.setCurrently(currently));
-		dispatch(actions.setDaily(daily));
-		dispatch(actions.setHourly(hourly));
-		dispatch(actions.setTimeZone(timezone));
-		dispatch(actions.setGeoLocationActive(false));
-		dispatch(actions.setLoading(false));
+		saveData(response, dispatch);
 	} catch (reason) {
 		dispatch(actions.setError({ apiWeather: true }));
 		dispatch(actions.setLoading(false));
