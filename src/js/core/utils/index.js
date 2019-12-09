@@ -82,12 +82,9 @@ export const saveLocations = () => {
 	const parseData = data => {
 		if (!validateObj(data)) return null;
 		const savedData = JSON.parse(getStorage);
-		const arrData = !validateArray(savedData) ? [savedData] : [...savedData];
-		const newData =
-			arrData.length > limitStorage
-				? [data, ...arrData.slice(0, limitStorage)]
-				: [...data, ...arrData];
-		return newData;
+		if (!savedData || !validateArray(savedData)) return [data];
+		if (savedData.length >= limitStorage) return [data, ...savedData.slice(0, limitStorage)];
+		return [data, ...savedData];
 	};
 
 	const setStorage = data => {
