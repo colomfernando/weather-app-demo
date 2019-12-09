@@ -6,6 +6,7 @@ import Styles from './styles';
 const Result = ({ displayString, coordinates, setWeather }) => {
 	if (!validateArray(coordinates)) return null;
 	const params = {
+		displayString,
 		lat: coordinates[1],
 		lon: coordinates[0]
 	};

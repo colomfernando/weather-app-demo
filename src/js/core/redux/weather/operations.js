@@ -1,5 +1,5 @@
 import { getWeather, getLocationFromBrowser, searchLocation } from 'core/api';
-import { validateObj, validateArray } from 'core/utils';
+import { validateObj, validateArray, saveLocations } from 'core/utils';
 import actions from './actions';
 
 const setErrorIfExist = (data, dispatch) => {
@@ -54,8 +54,12 @@ const setWeather = data => async dispatch => {
 			dispatch(actions.setError({ apiWeather: true }));
 			return;
 		}
-		const { lat, lon } = data;
+		const { lat, lon, displayString } = data;
 		if (!lat || !lon) return;
+		if (displayString) {
+			const saveLocation = saveLocations();
+			saveLocation.setStorage({ name: displayString, lat: '1', lon: '2' });
+		}
 		const params = {
 			lat: lat.toString(),
 			lon: lon.toString()

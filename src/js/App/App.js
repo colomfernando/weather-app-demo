@@ -8,6 +8,7 @@ import Hourly from 'components/Hourly';
 import InputSearch from 'components/InputSearch';
 import Tabs from 'components/Tabs';
 import SkeletonCard from 'components/SkeletonCard';
+
 import Styles from './styles';
 
 const App = () => {

@@ -71,3 +71,36 @@ export const createDate = unixTime => {
 		seconds: date.getSeconds()
 	};
 };
+
+export const saveLocations = () => {
+	const nameStorage = 'locations';
+	const limitStorage = 5;
+	const { localStorage } = window;
+	if (!localStorage) return null;
+	const getStorage = localStorage.getItem(nameStorage);
+
+	const parseData = data => {
+		if (!validateObj(data)) return null;
+		const savedData = JSON.parse(getStorage);
+		const arrData = !validateArray(savedData) ? [savedData] : [...savedData];
+		const newData =
+			arrData.length > limitStorage
+				? [data, ...arrData.slice(0, limitStorage)]
+				: [...data, ...arrData];
+		return newData;
+	};
+
+	const setStorage = data => {
+		if (!data || !validateObj(data)) return null;
+		const { name, lat, lon } = data;
+		if (!name || !lat || !lon) return null;
+		const params = {
+			name: name.toString(),
+			lat: lat.toString(),
+			lon: lon.toString()
+		};
+		return localStorage.setItem(nameStorage, JSON.stringify(parseData(params)));
+	};
+
+	return { setStorage, getStorage };
+};
