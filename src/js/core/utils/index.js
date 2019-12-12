@@ -72,16 +72,16 @@ export const createDate = unixTime => {
 	};
 };
 
-export const saveLocations = () => {
+export const storageLocations = () => {
 	const nameStorage = 'locations';
 	const limitStorage = 5;
 	const { localStorage } = window;
 	if (!localStorage) return null;
-	const getStorage = localStorage.getItem(nameStorage);
+	const getStorage = () => JSON.parse(localStorage.getItem(nameStorage));
 
 	const parseData = data => {
 		if (!validateObj(data)) return null;
-		const savedData = JSON.parse(getStorage);
+		const savedData = getStorage();
 		if (!savedData || !validateArray(savedData)) return [data];
 		if (savedData.length >= limitStorage) return [data, ...savedData.slice(0, limitStorage)];
 		return [data, ...savedData];
@@ -90,6 +90,7 @@ export const saveLocations = () => {
 	const setStorage = data => {
 		if (!data || !validateObj(data)) return null;
 		const { name, lat, lon } = data;
+		console.log('data :', data);
 		if (!name || !lat || !lon) return null;
 		const params = {
 			name: name.toString(),

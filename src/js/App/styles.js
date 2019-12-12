@@ -21,10 +21,13 @@ const Body = styled.div`
 	display: flex;
 	width: 100%;
 	justify-content: flex-end;
-	margin-right: 80px;
+	padding: 0 20px;
 	${mediaQuery.mobile`
 		margin-right: 0;
 		justify-content: center;
+	`}
+	${mediaQuery.tablet`
+		flex-flow: column nowrap;
 	`}
 `;
 

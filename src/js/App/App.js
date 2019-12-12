@@ -6,6 +6,7 @@ import { validateObj } from 'core/utils';
 import Daily from 'components/Daily';
 import Hourly from 'components/Hourly';
 import InputSearch from 'components/InputSearch';
+import SavedLocations from 'components/SavedLocations';
 import Tabs from 'components/Tabs';
 import SkeletonCard from 'components/SkeletonCard';
 
@@ -22,6 +23,7 @@ const App = () => {
 					<InputSearch />
 				</Styles.Header>
 				<Styles.Body>
+					<SavedLocations />
 					<Currently loading={loading} currently={currently} timezone={timezone} />
 				</Styles.Body>
 				<Styles.Footer>
