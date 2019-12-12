@@ -11,9 +11,13 @@ const SavedLocations = ({ setWeather }) => {
 	const arrayWithValidData = savedStorage.filter(item => validateObj(item));
 	return (
 		<Styles.Wrapper>
-			{arrayWithValidData.map((item, idx) => (
-				<Location key={idx.toString()} {...item} setWeather={setWeather} />
-			))}
+			{arrayWithValidData.length && <Styles.Title>Last searches</Styles.Title>}
+			<Styles.WrapperSearch>
+				{arrayWithValidData.length &&
+					arrayWithValidData.map((item, idx) => (
+						<Location key={idx.toString()} {...item} setWeather={setWeather} />
+					))}
+			</Styles.WrapperSearch>
 		</Styles.Wrapper>
 	);
 };

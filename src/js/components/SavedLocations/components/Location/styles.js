@@ -6,11 +6,15 @@ const Wrapper = styled.button`
 	background-color: rgba(0, 0, 0, 0.5);
 	border-radius: 5px;
 	padding: 10px;
+	flex: 1 0 auto;
 	&:not(:last-child) {
 		margin-bottom: 10px;
 	}
 	${mediaQuery.tablet`
-		margin-bottom: 0;
+			&:not(:last-child) {
+				margin-bottom: 0;
+				margin-right: 10px;
+			}
 	`}
 `;
 const Name = styled.p`

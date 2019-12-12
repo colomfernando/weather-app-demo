@@ -27,7 +27,9 @@ const Body = styled.div`
 		justify-content: center;
 	`}
 	${mediaQuery.tablet`
+		padding: 0 10px;
 		flex-flow: column nowrap;
+		overflow: hidden;
 	`}
 `;
 
