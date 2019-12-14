@@ -8,9 +8,11 @@ const InputSearch = ({ getLocationResults }) => {
 	const [showResults, setShowResults] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 	const [searchVal, setSearchVal] = useState('');
-	const node = useRef(null);
 	const handleOnChange = event => setSearchVal(event.target.value);
 	const debounceGetLocationResults = useCallback(debounce(getLocationResults, 200), []);
+
+	// handle outside click
+	const node = useRef(null);
 	const handleOnClick = event => {
 		if (!node.current.contains(event.target)) {
 			setIsOpen(false);
