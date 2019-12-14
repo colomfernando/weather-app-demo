@@ -1,12 +1,12 @@
 import React from 'react';
-import { storageLocations, validateArray, validateObj } from 'core/utils';
+import { validateArray, validateObj } from 'core/utils';
 import { func } from 'prop-types';
+import { useSelector } from 'react-redux';
 import Styles from './styles';
 import Location from './components/Location';
 
 const SavedLocations = ({ setWeather }) => {
-	const storage = storageLocations();
-	const savedStorage = storage.getStorage();
+	const savedStorage = useSelector(state => state.storageLocations);
 	if (!validateArray(savedStorage)) return null;
 	const arrayWithValidData = savedStorage.filter(item => validateObj(item));
 	return (

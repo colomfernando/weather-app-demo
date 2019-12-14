@@ -40,6 +40,11 @@ const setLocationResults = res => ({
 	payload: res
 });
 
+const setStorageLocations = res => ({
+	type: types.SET_STORAGE_LOCATIONS,
+	payload: res
+});
+
 export default {
 	setCurrently,
 	setGeoLocationActive,
@@ -48,5 +53,6 @@ export default {
 	setTimeZone,
 	setLoading,
 	setError,
-	setLocationResults
+	setLocationResults,
+	setStorageLocations
 };

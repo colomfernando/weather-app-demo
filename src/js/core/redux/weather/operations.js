@@ -59,6 +59,7 @@ const setWeather = data => async dispatch => {
 		if (displayString) {
 			const saveLocation = storageLocations();
 			saveLocation.setStorage({ name: displayString, lat, lon });
+			dispatch(actions.setStorageLocations(saveLocation.getStorage()));
 		}
 		const params = {
 			lat: lat.toString(),
@@ -92,4 +93,11 @@ const getLocationResults = value => async dispatch => {
 	}
 };
 
-export default { getWeatherFromLocation, getLocationResults, setWeather };
+const getStorageLocation = () => dispatch => {
+	const storage = storageLocations();
+	const savedLocation = storage.getStorage();
+	if (!savedLocation) return dispatch(actions.setStorageLocations([]));
+	dispatch(actions.setStorageLocations(savedLocation));
+};
+
+export default { getWeatherFromLocation, getLocationResults, setWeather, getStorageLocation };

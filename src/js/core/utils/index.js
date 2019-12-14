@@ -90,8 +90,10 @@ export const storageLocations = () => {
 	const setStorage = data => {
 		if (!data || !validateObj(data)) return null;
 		const { name, lat, lon } = data;
-		console.log('data :', data);
 		if (!name || !lat || !lon) return null;
+		const savedStorage = getStorage();
+		const isDataSaved = savedStorage ? savedStorage.filter(location => location.name === name) : [];
+		if (isDataSaved.length) return null;
 		const params = {
 			name: name.toString(),
 			lat: lat.toString(),

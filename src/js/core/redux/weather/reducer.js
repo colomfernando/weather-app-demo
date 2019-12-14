@@ -8,6 +8,7 @@ const initialState = {
 	loading: false,
 	geoLocationActive: false,
 	locationResults: [],
+	storageLocations: [],
 	error: {
 		apiWeather: false,
 		timezone: false,
@@ -36,6 +37,8 @@ const reducer = (state = initialState, action) => {
 			return { ...state, geoLocationActive: action.payload };
 		case types.SET_LOCATION_RESULTS:
 			return { ...state, locationResults: action.payload };
+		case types.SET_STORAGE_LOCATIONS:
+			return { ...state, storageLocations: action.payload };
 		default:
 			return state;
 	}
