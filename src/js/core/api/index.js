@@ -2,8 +2,9 @@ import axios from 'axios';
 import { validateParamsApi, validateObj, validateArray } from '../utils';
 
 const APIWEATHER = 'https://api.colomfernando.dev/demos/weather';
-const APILOCATION =
-	'https://www.mapquestapi.com/search/v3/prediction?key=RJvnH1bDTpYyInTGHSIy56VNAGnX2M6l&limit=15&collection=adminArea,address,airport,category&q=';
+const APILOCATION = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
+const PARAMS =
+	'?access_token=pk.eyJ1IjoiY29sb21mZXJuYW5kbyIsImEiOiJjazQ3NGNjMGEwcjZtM2Rta24xZDd2N3NyIn0.QmgyS1sxOdUSx1LGuDZ98w&limit=10&types=country,region,district,place';
 
 export const getWeather = async (params = {}) => {
 	try {
@@ -54,8 +55,8 @@ const parseResults = obj => {
 	if (!validateArray(obj)) return {};
 	const parsedData = obj.reduce((acc, act) => {
 		const item = act;
-		const { place, displayString, name, slug, id } = item;
-		const data = { id, name, slug, ...getCoordsAndProps(place), displayString };
+		const { place_name: displayString, text, id } = item;
+		const data = { id, name: text, ...getCoordsAndProps(item), displayString };
 		return [...acc, data];
 	}, []);
 	return parsedData;
@@ -64,9 +65,9 @@ const parseResults = obj => {
 export const searchLocation = async (value = '') => {
 	try {
 		if (!value || typeof value !== 'string') return {};
-		const { data } = await axios.get(`${APILOCATION}${value}`);
+		const { data } = await axios.get(`${APILOCATION}${value}.json${PARAMS}`);
 		if (!validateObj(data)) return [];
-		const { results } = data;
+		const { features: results } = data;
 		if (!validateArray(results)) return [];
 		const parsedResults = parseResults(results);
 		return parsedResults;
