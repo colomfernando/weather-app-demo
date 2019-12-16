@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors, mediaQuery } from 'theme';
+import { colors } from 'theme';
 import IconComponent from 'components/Icon';
 
 const Wrapper = styled.div`
@@ -26,6 +26,7 @@ const WrapperInput = styled.div`
 `;
 const Input = styled.input`
 	outline: none;
+	width: 90%;
 	background-color: transparent;
 	border: none;
 	color: ${colors.grey[500]};

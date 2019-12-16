@@ -4,7 +4,7 @@ import { debounce } from 'core/utils';
 import Styles from './styles';
 import Results from './components/Results';
 
-const InputSearch = ({ getLocationResults }) => {
+const InputSearch = ({ getLocationResults, setWeather }) => {
 	const [showResults, setShowResults] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 	const [searchVal, setSearchVal] = useState('');
@@ -16,7 +16,6 @@ const InputSearch = ({ getLocationResults }) => {
 	const handleOnClick = event => {
 		if (!node.current.contains(event.target)) {
 			setIsOpen(false);
-			setSearchVal('');
 			return setShowResults(false);
 		}
 		setShowResults(true);
@@ -25,8 +24,12 @@ const InputSearch = ({ getLocationResults }) => {
 
 	const handleClickResult = value => {
 		if (!value) return;
-		setSearchVal(value);
+		const { displayString } = value;
+		if (displayString === searchVal) return;
+		setWeather(value);
+		setSearchVal(displayString);
 		setIsOpen(false);
+		setShowResults(false);
 	};
 
 	useEffect(() => {
@@ -54,10 +57,12 @@ const InputSearch = ({ getLocationResults }) => {
 };
 
 InputSearch.propTypes = {
-	getLocationResults: func
+	getLocationResults: func,
+	setWeather: func
 };
 
 InputSearch.defaultProps = {
-	getLocationResults: () => {}
+	getLocationResults: () => {},
+	setWeather: () => {}
 };
 export default InputSearch;

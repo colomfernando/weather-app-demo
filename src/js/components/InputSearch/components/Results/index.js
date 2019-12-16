@@ -6,8 +6,7 @@ import Resutls from './Results';
 const mapDispatchToProps = dispatch =>
 	bindActionCreators(
 		{
-			getWeatherFromLocation: operations.getWeatherFromLocation,
-			setWeather: operations.setWeather
+			getWeatherFromLocation: operations.getWeatherFromLocation
 		},
 		dispatch
 	);

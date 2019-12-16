@@ -5,13 +5,9 @@ import GetLocation from '../GetLocation';
 import Styles from './styles';
 import Result from './components/Result';
 
-const Results = ({ getWeatherFromLocation, setWeather, handleClickResult }) => {
+const Results = ({ getWeatherFromLocation, handleClickResult }) => {
 	const geoLocationActive = useSelector(state => state.geoLocationActive);
 	const locationResults = useSelector(state => state.locationResults);
-	const handleClick = value => {
-		handleClickResult(value);
-		setWeather(value);
-	};
 	return (
 		<Styles.Wrapper>
 			<GetLocation
@@ -24,7 +20,7 @@ const Results = ({ getWeatherFromLocation, setWeather, handleClickResult }) => {
 			{!!locationResults.length && (
 				<Styles.WrapperResults>
 					{locationResults.slice(0, 8).map(result => (
-						<Result key={result.id} {...result} setWeather={setWeather} />
+						<Result key={result.id} {...result} setWeather={handleClickResult} />
 					))}
 				</Styles.WrapperResults>
 			)}
@@ -34,13 +30,11 @@ const Results = ({ getWeatherFromLocation, setWeather, handleClickResult }) => {
 
 Results.propTypes = {
 	getWeatherFromLocation: func,
-	setWeather: func,
 	handleClickResult: func
 };
 
 Results.defaultProps = {
 	getWeatherFromLocation: () => {},
-	setWeather: () => {},
 	handleClickResult: () => {}
 };
 
