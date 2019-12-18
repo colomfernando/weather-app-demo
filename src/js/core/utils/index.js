@@ -74,7 +74,7 @@ export const createDate = unixTime => {
 
 export const storageLocations = () => {
 	const nameStorage = 'locations';
-	const limitStorage = 5;
+	const limitStorage = 3;
 	const { localStorage } = window;
 	if (!localStorage) return null;
 	const getStorage = () => JSON.parse(localStorage.getItem(nameStorage));
@@ -83,7 +83,7 @@ export const storageLocations = () => {
 		if (!validateObj(data)) return null;
 		const savedData = getStorage();
 		if (!savedData || !validateArray(savedData)) return [data];
-		if (savedData.length >= limitStorage) return [data, ...savedData.slice(0, limitStorage)];
+		if (savedData.length >= limitStorage) return [data, ...savedData.slice(0, limitStorage - 1)];
 		return [data, ...savedData];
 	};
 

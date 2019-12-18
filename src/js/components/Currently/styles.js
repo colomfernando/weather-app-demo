@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 	${mediaQuery.mobile`
-		padding: 20px;
+		padding: 0;
 		width: 100%;
 	`};
 `;
@@ -16,11 +16,7 @@ const Wrapper = styled.div`
 const WrapperIcon = styled.div`
 	display: flex;
 	justify-content: center;
-	padding: 25px;
-	${mediaQuery.mobile`
-		padding: 0;
-		margin-left: auto;
-	`}
+	padding: 20px;
 `;
 const WrapperInfo = styled.div`
 	display: flex;

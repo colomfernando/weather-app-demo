@@ -6,6 +6,8 @@ const Wrapper = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 10px;
+	width: 100%;
+	max-width: 190px;
 	&:last-child {
 		margin-bottom: initial;
 	}

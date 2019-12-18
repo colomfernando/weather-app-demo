@@ -5,7 +5,7 @@ import Styles from './styles';
 const Location = ({ name, lat, lon, setWeather }) => {
 	if (!name || !lat || !lon) return null;
 	return (
-		<Styles.Wrapper onClick={() => setWeather({ lat, lon })}>
+		<Styles.Wrapper onClick={() => setWeather({ displayString: name, lat, lon })}>
 			<Styles.Name>{name}</Styles.Name>
 		</Styles.Wrapper>
 	);

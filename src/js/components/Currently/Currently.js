@@ -19,14 +19,16 @@ const Currently = ({ currently, timezone, loading }) => {
 				</Styles.WrapperIcon>
 			)}
 			{!loading && temperature && (
-				<Styles.WrapperInfo>
-					<LocationText locationStr={timezone} />
-					<Temperature temperature={temperature} />
-					{validateObj(parsedData) &&
-						Object.keys(parsedData).map(key => (
-							<Row key={key} title={key} value={parsedData[key]} />
-						))}
-				</Styles.WrapperInfo>
+				<>
+					<Styles.WrapperInfo>
+						<LocationText locationStr={timezone} />
+						<Temperature temperature={temperature} />
+						{validateObj(parsedData) &&
+							Object.keys(parsedData).map(key => (
+								<Row key={key} title={key} value={parsedData[key]} />
+							))}
+					</Styles.WrapperInfo>
+				</>
 			)}
 		</Styles.Wrapper>
 	);

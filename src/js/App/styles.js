@@ -3,7 +3,7 @@ import { mediaQuery } from 'theme';
 
 const Wrapper = styled.div`
 	display: grid;
-	grid-template-rows: 20% 50% 30%;
+	grid-template-rows: 15% 55% 30%;
 	justify-items: center;
 	width: 100vw;
 	height: 100vh;
@@ -24,12 +24,13 @@ const Body = styled.div`
 	padding: 0 20px;
 	${mediaQuery.mobile`
 		margin-right: 0;
-		justify-content: center;
 	`}
 	${mediaQuery.tablet`
 		padding: 0 10px;
 		flex-flow: column nowrap;
 		overflow: hidden;
+		justify-content: center;
+		align-items: center;
 	`}
 `;
 

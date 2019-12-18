@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from 'theme';
+import { colors, mediaQuery } from 'theme';
 import IconComponent from 'components/Icon';
 
 const Wrapper = styled.div`
@@ -8,6 +8,10 @@ const Wrapper = styled.div`
 	position: relative;
 	max-width: 400px;
 	width: 100%;
+	${mediaQuery.tablet`
+		padding: 0 10px;
+		max-width: initial;
+	`}
 `;
 
 const WrapperInput = styled.div`

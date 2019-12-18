@@ -7,7 +7,6 @@ import { validateObj } from 'core/utils';
 import Daily from 'components/Daily';
 import Hourly from 'components/Hourly';
 import InputSearch from 'components/InputSearch';
-import SavedLocations from 'components/SavedLocations';
 import Tabs from 'components/Tabs';
 import SkeletonCard from 'components/SkeletonCard';
 
@@ -29,18 +28,19 @@ const App = ({ getStorageLocation }) => {
 					<InputSearch />
 				</Styles.Header>
 				<Styles.Body>
-					<SavedLocations />
 					<Currently loading={loading} currently={currently} timezone={timezone} />
 				</Styles.Body>
-				<Styles.Footer>
-					{loading && (
+				{loading && (
+					<Styles.Footer>
 						<Styles.WrapperSkeleton>
 							{[...Array(12).keys()].map(idx => (
 								<SkeletonCard key={idx.toString()} />
 							))}
 						</Styles.WrapperSkeleton>
-					)}
-					{!loading && validateObj(daily) && validateObj(hourly) && (
+					</Styles.Footer>
+				)}
+				{!loading && validateObj(daily) && validateObj(hourly) && (
+					<Styles.Footer>
 						<Tabs
 							titles={['daily', 'hourly']}
 							childrens={[
@@ -48,8 +48,8 @@ const App = ({ getStorageLocation }) => {
 								<Hourly key="hourly" data={hourly.data} />
 							]}
 						/>
-					)}
-				</Styles.Footer>
+					</Styles.Footer>
+				)}
 			</Styles.Wrapper>
 		</>
 	);

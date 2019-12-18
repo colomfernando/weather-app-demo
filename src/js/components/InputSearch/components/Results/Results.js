@@ -1,6 +1,7 @@
 import React from 'react';
 import { func } from 'prop-types';
 import { useSelector } from 'react-redux';
+import SavedLocations from './components/SavedLocations';
 import GetLocation from '../GetLocation';
 import Styles from './styles';
 import Result from './components/Result';
@@ -17,6 +18,7 @@ const Results = ({ getWeatherFromLocation, handleClickResult }) => {
 				isActive={geoLocationActive}
 				onClick={getWeatherFromLocation}
 			/>
+			<SavedLocations setWeather={handleClickResult} />
 			{!!locationResults.length && (
 				<Styles.WrapperResults>
 					{locationResults.slice(0, 8).map(result => (
@@ -24,6 +26,7 @@ const Results = ({ getWeatherFromLocation, handleClickResult }) => {
 					))}
 				</Styles.WrapperResults>
 			)}
+			<Styles.Attribution>© 2020 Mapbox and its suppliers. All rights reserved.</Styles.Attribution>
 		</Styles.Wrapper>
 	);
 };

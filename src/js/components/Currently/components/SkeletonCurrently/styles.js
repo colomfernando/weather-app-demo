@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-	width: 350px;
+	width: 100%;
 	height: auto;
 	svg {
-		width: 300px;
+		width: 320px;
 	}
 `;
 

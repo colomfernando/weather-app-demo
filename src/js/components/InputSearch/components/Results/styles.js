@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from 'theme';
+import { colors, mediaQuery } from 'theme';
 
 const Wrapper = styled.div`
 	position: absolute;
@@ -14,6 +14,10 @@ const Wrapper = styled.div`
 	border-bottom-right-radius: 5px;
 	background-color: ${colors.white};
 	padding: 10px;
+	${mediaQuery.tablet`
+		left: 10px;
+		width: calc(100% - 20px);
+	`}
 `;
 
 const WrapperResults = styled.div`
@@ -35,7 +39,14 @@ const WrapperResults = styled.div`
 	}
 `;
 
+const Attribution = styled.span`
+	color: ${colors.black};
+	font-size: 10px;
+	padding: 5px 0 0;
+`;
+
 export default {
 	Wrapper,
-	WrapperResults
+	WrapperResults,
+	Attribution
 };
