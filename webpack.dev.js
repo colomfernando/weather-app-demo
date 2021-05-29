@@ -7,8 +7,7 @@ const port = process.env.PORT || 3000;
 
 module.exports = {
 	entry: {
-		app: ['./js/index.js'],
-		vendor: ['react', 'react-dom', 'styled-components']
+		app: ['./js/index.js']
 	},
 	devtool: 'inline-source-map',
 	mode: 'development',
@@ -37,29 +36,12 @@ module.exports = {
 			}
 		]
 	},
-	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				commons: {
-					test: /[\\/]node_modules[\\/]/,
-					name: 'vendor',
-					chunks: 'all'
-				}
-			}
-		}
-	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new HtmlWebpackPlugin({
 			template: 'html/index.html',
 			filename: 'index.html'
-		}),
-		new CopyWebpackPlugin([
-			{
-				from: './assets',
-				to: 'assets'
-			}
-		])
+		})
 	],
 	output: {
 		filename: '[name].bundle.js',

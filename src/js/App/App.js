@@ -23,7 +23,6 @@ const App = ({ getStorageLocation }) => {
 		<>
 			<GlobalStyle />
 			<Styles.Wrapper>
-				{/* <Styles.Img src="assets/bk.jpg" /> */}
 				<Styles.Header>
 					<InputSearch />
 				</Styles.Header>
