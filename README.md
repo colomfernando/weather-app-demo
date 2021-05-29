@@ -6,6 +6,8 @@
 
 This is a Weather demo, with geolocation to get the actual weather. Also you can filter by country.
 
+[Live demo](https://weather-geolocation-demo.netlify.app/)
+
 ## Packages installed
 
 * React
