@@ -1,6 +1,6 @@
 {
-	"name": "base-react-styled",
-	"version": "1.1.1",
+	"name": "weather-app-demo",
+	"version": "1.0.0",
 	"description": "base proyect with react and styled component",
 	"main": "index.js",
 	"scripts": {
@@ -10,14 +10,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/colomfernando/base-react-styled.git"
+		"url": "git+https://github.com/colomfernando/weather-app-demo.git"
 	},
 	"author": "Fernando Colom",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/colomfernando/base-react-styled/issues"
+		"url": "https://github.com/colomfernando/weather-app-demo/issues"
 	},
-	"homepage": "https://github.com/colomfernando/base-react-styled#readme",
+	"homepage": "https://github.com/colomfernando/weather-app-demod#readme",
 	"devDependencies": {
 		"@babel/cli": "^7.7.0",
 		"@babel/core": "^7.7.2",
