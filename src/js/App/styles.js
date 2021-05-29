@@ -7,6 +7,7 @@ const Wrapper = styled.div`
 	justify-items: center;
 	width: 100vw;
 	height: 100vh;
+	background: #393e41;
 `;
 
 const Header = styled.header`
