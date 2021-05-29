@@ -6,7 +6,7 @@ module.exports = {
 	entry: {
 		app: ['./js/index.js']
 	},
-	mode: 'development',
+	mode: 'production',
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		modules: [path.resolve(__dirname, 'src'), 'node_modules'],
